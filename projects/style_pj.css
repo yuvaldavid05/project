@@ -1,0 +1,32 @@
+.project-scr{
+    background-color:#EBFEFF;
+    display: flex;
+    justify-content: center;
+}
+
+
+.project-scr img{
+    max-width: 80% ;
+    border: 1px solid rgba(148, 143, 143, 0.637);
+    border-radius: 5px;
+    box-shadow: 0 0px 40px #00000066;
+    margin:25px;
+    text-align: center;
+}
+
+.btn{
+        margin: 20px;
+        font-size: 18px;
+        border-radius: 30px;
+        padding: 6px 32px;
+}
+
+@media (max-width : 768px) {
+    .project-scr img{
+        width:80%;
+    }
+
+    #links{
+        width:100%;
+    }
+}

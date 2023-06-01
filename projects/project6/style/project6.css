@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800;900&display=swap');
+
+body{
+    font-family: 'Heebo', sans-serif;
+    direction: rtl;
+}
+
+.opening-div{
+    background-color:#0EE1E1;
+    height: 500px;
+    direction: rtl;
+    display:flex;
+}
+
+
+.box img{
+    mix-blend-mode: color-burn;
+}
+
+.box{
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+}
+
+.bigText{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    font-size: 16px;
+    margin: 0;
+}
+
+
+.bigText h1{
+    font-size:60px;
+    font-weight: 900;
+}
+
+.bigText p{
+    font-size: 20px;
+}
+
+.whatsapp{
+    border-radius: 50%;
+    background-color: #F0FFFF;
+    color:#000000;
+    position: fixed;
+    top:200px;
+    left:0;
+    z-index: 2;
+}
+
+.icons{
+    display:flex;
+    margin:20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.container>svg{
+   margin: 20px 0; 
+}
+
+.container>h2{
+    color: #0EE1E1;
+    font-size:30px;
+    font-weight:900 ;
+}
+
+.card{
+    border:none;
+    color: #000000;
+    font-weight: 700;
+}
+
+.card-body{
+    font-size: 15px;
+    font-weight: 400;
+    padding:10px 20px;
+}
+
+.row{
+    margin:70px 0;
+    height:100%;
+}
+
+/* הגדרות מפה BOOTSTRAP */
+    .map-container{
+        overflow:hidden;
+        padding-bottom:56.25%;
+        position:relative;
+        height:0;
+    }
+    .map-container iframe{
+        top:0;
+        bottom: 0;
+        left:0;
+        right:0;
+        margin: auto;
+        height:80%;
+        width:80%;
+        position:absolute;
+        box-shadow: 0 0 42px rgba(0, 0, 0, 0.648), inset 0 0 42px rgb(0, 0, 0);
+        
+        
+    }
+
+    .frame-img{
+        background-color: #0EE1E1;
+        border: 1px solid #49d8d8a0;
+        
+    }
+
+    .col-md-5{
+        background-color: #F0FFFF;
+        margin:0;
+    }
+
+    form{
+        padding:120px;
+    }
+    h1{
+        font-size: 35px;
+        font-weight: 900;
+        color:#090909;
+        margin-bottom: 10px;
+    }
+    
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        color:#090909;
+        margin-bottom: 25px ;
+    }
+    
+    label {
+        font-size:12px;
+        color:#2C2C2C;
+        font-weight: 600;
+        display: block;
+        margin: 20px 0;
+    }
+    
+    .input2 {
+        width: 100%;
+        border:none;
+        border-radius: 0;
+        border-bottom: 3px solid #0EE1E1;
+        background-color: #E5EEFF;
+    }
+    
+    .button2{
+        width: 100%;
+        height: 37px;
+        background-color:#0EE1E1;
+        border:none;
+        border-radius: 0;
+        color:#000000;
+        font-weight: 600;
+    }
+    
+    .button2:hover{
+        background-color: #6e5da3;
+        border:1px dotted #020253;
+        color:#ffffff
+    }
+
+    footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:10px;
+        
+    }
+
+    footer div{
+        width:70px;
+        height:70px;
+        background-color: #0EE1E1;
+        border-radius: 50%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin-top:25px;
+    }
+
+    footer div>img{
+        height:30px;
+    }
+
+    .line{
+        width:100%;
+        height:12px;
+        background-color: #0EE1E1;
+        position: relative;
+        bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+        
+        .opening-div{
+            display:block;
+        }
+
+        .bigText h1{
+            font-size:30px;
+        }
+
+        .bigText p{
+            font-size:18px;
+        }
+
+        .box {
+            padding:12px;
+            justify-content: right;
+        }
+
+        .box img{
+            height:100px;
+            width:110px;
+            padding-top:20px;
+            
+        }
+
+        .icons{
+            display:block;
+            width:80%;
+        }
+        .container{
+            margin:25px 15px;
+            border: 1px solid #00000029;
+            font-weight: 400;
+        }
+
+        form{
+            padding:25px;
+        }
+
+    }

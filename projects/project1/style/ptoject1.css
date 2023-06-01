@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;500;600;900&display=swap');
+
+body{
+    direction: rtl;
+    margin:0;
+    padding:0;
+    font-family: 'Heebo', sans-serif;  
+}
+
+.bg{
+    height:450px;
+    background-image: url(../images/Path\ 15.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center center;
+    margin:0;
+    padding:0;
+}
+
+.frame1{
+    position: relative;
+}
+.inside{
+    width:420px;
+    height: 490px;
+    background-color: #1A1A1AD4;
+    position: absolute;
+    top:80px;
+    right:170px;
+    z-index: 2;
+    padding: 45px;
+    box-sizing: border-box;
+    
+}
+h2{
+    font-size: 28px;
+    color:#FFFFFF;
+    font-weight: bold;
+    text-align: center;
+}
+
+p{
+    font-size: 17px;
+    font-weight:300;
+    color: #F9F9F9;
+    display:inline-block;
+    margin: 8px 0 30px 0;
+    text-align: center;
+}
+
+
+form>label{
+    display:block;
+    color:#FFFFFF;
+    font-weight: 600;
+}
+
+form>input{
+    width:90%;
+    height:25px;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #D31C75;
+}
+
+button{
+    margin:20px 0;
+    background-color: #D31C75;
+    color:#FFFFFF;
+    padding: 8px 30px;
+    font-size:20px;
+    border:none;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .bg{
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height:300px;
+    }
+    .inside{
+    max-width:300px;
+    min-height: 450px;
+    position: absolute;
+    margin:auto;
+    top:100px;
+    left:0;
+    right:0;
+    padding: 40px 30px;
+    box-sizing:inherit;
+    }
+}
+
