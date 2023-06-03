@@ -85,7 +85,7 @@ a.nav-link {
   margin: 30px;
   font-weight: bold;
 }
-#about button {
+#about a {
   margin-top: 20px;
   font-size: 1.4em;
   border-radius: 30px;
