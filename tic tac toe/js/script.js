@@ -1,30 +1,48 @@
 const board = document.querySelector('.board');
 let counter = 0;
 let winner;
+let isGameOver = false;
+let divAll = [];
 
 //יצירת הלוח
 function createBoard(){
     for(i = 1; i <= 9; i++){
         const div = document.createElement('div');
+        divAll.push(div);
         
+        //יצירת שלבי המשחק כאשר כל תור זוגי הוא של שחקן O
         div.addEventListener('click', ev =>{
-            clickDiv = ev.target;
+            // במידה וכבר נגמר המשחק אז לבטל את הכניסה להאזנה 
+            if (isGameOver) {
+                return;
+            }
+
+           const clickDiv = ev.target;
             if(!clickDiv.innerHTML && counter % 2 == 0){
                 div.innerHTML = 'x';
                 counter++;
-            }else {
+                
+            } else if( !clickDiv.innerHTML) {
                 div.innerHTML = 'o';
                 counter++;
             }
+            // שליחה לפונקציה שתבדוק אם יש מנצח בכל קליק, מילוי קובייה
             check();
-            //לא לשכוח לאפס את הקאונטר
-        })
+
+            //במידה ויש מנצח ו.או כל המשבצות מלאות - הכרזה על סוף המשחק ואיפוס הצובר
+            if (winner || divAll.every(val => val.innerHTML)){
+                counter = 0;
+                isGameOver = true;
+                gameOver();
+            }
+        });
+
         board.appendChild(div);
-        
     }
 };
 
 
+//פונקציה הבודקת אם יש מנצח דרך מערך שבנוי ממערכים המכיל אינדקסים שבהם יש מנצח
 function check() {
     const divs = board.querySelectorAll('div');
 
@@ -39,24 +57,43 @@ function check() {
         [2, 4, 6],
     ];
 
+    //בדיקה של כל מערך בתוך המערך הגדול
     for (const arr of options){
-        const res = arr.every(index => divs[index].innerHTML == 'x' | 'o');
+        const res = arr.map(index => divs[index].innerHTML);
 
-        console.log(res);
+        //בדיקה אם כל הערכים במערך הפנימי שווים - כלומר יש מנצח
+        if(res.every(val => val == 'x')){
+            winner = 'x';
+            break;
 
-        // if(res && == 'x'){
-        //     winner = x;
-        //     console.log(winner);
-        // } else if(res && divs[index].innerHTML == 'o'){
-        //     winner = o;
-        //     console.log(winner);
-
-        // } else {
-        //     conter = 0;
-            
-        // }
-
+        } else if (res.every(val => val == 'o')) {
+            winner = 'o';
+            break;
+        }
         
     }
 };
 
+//פונקציה המכריזה על סןף המשחק - או שיש מנצח או שכל המשבצות מלאות 
+function gameOver(){
+    if(winner){
+        const winner = document.createElement("div");
+        winner.classList.add("winner");
+        winner.innerHTML = `ניצח`;
+
+        document.body.appendChild(winner);
+
+    } else {
+        const nobody = document.createElement("div");
+        nobody.classList.add("nobody");
+        nobody.innerHTML = 'אין מנצח';
+
+        document.body.appendChild(nobody);
+    }
+
+    //התחלה מחדש של המשחק - תוך טעינת מסך
+    setTimeout(() => {
+        location.reload();
+    }, 7 * 1000);
+
+}
