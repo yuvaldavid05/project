@@ -1,45 +1,119 @@
 const board = document.querySelector('.board');
 let counter = 0;
-let winner;
-let isGameOver = false;
+let winnerIs;
+let isGameover = false;
 let divAll = [];
+let timerInterval;
+let timer = 0;
+let namePlayer1 = "שחקן 1";
+let namePlayer2 = "שחקן 2";
+
+function logInPLayers(){
+
+    const player1 = document.querySelector('.frame input#first');
+    const player2 = document.querySelector('.frame input#second');
+
+    if(player1.value || player2.value){
+        namePlayer1 = player1.value || namePlayer1;
+        namePlayer2 = player2.value || namePlayer2;
+    }
+
+    document.querySelector('#player1').innerHTML = namePlayer1;
+    console.log(namePlayer1);
+    document.querySelector('#player2').innerHTML = namePlayer2;
+    console.log(namePlayer2);
+
+
+    document.querySelector('#first').value = '';
+    document.querySelector('#second').value = '';
+}
+
+
 
 //יצירת הלוח
 function createBoard(){
+    document.querySelector('.frame section').style.display = 'none';
+
     for(i = 1; i <= 9; i++){
         const div = document.createElement('div');
+       div.style.color =` hsl(${i * 30}  50%  52%)` ;
         divAll.push(div);
+
+        board.appendChild(div);
         
-        //יצירת שלבי המשחק כאשר כל תור זוגי הוא של שחקן O
-        div.addEventListener('click', ev =>{
+        //יצירת שלבי המשחק כאשר כל תור זוגי הוא של שחקן o
+        div.addEventListener('click', ev => {
             // במידה וכבר נגמר המשחק אז לבטל את הכניסה להאזנה 
-            if (isGameOver) {
+            clearInterval();
+            if (isGameover) {
                 return;
             }
 
            const clickDiv = ev.target;
             if(!clickDiv.innerHTML && counter % 2 == 0){
+                clearInterval(timerInterval);
+                timerOn();
+                timer = 0;
                 div.innerHTML = 'x';
                 counter++;
                 
             } else if( !clickDiv.innerHTML) {
+                clearInterval(timerInterval);
+                timerOn();
+                timer = 0;
                 div.innerHTML = 'o';
                 counter++;
             }
             // שליחה לפונקציה שתבדוק אם יש מנצח בכל קליק, מילוי קובייה
             check();
+            
+
+
 
             //במידה ויש מנצח ו.או כל המשבצות מלאות - הכרזה על סוף המשחק ואיפוס הצובר
-            if (winner || divAll.every(val => val.innerHTML)){
+            if (winnerIs || divAll.every(val => val.innerHTML)){
                 counter = 0;
-                isGameOver = true;
-                gameOver();
+                isGameover = true;
+                gameover();
             }
         });
-
-        board.appendChild(div);
     }
+
+    // const button1 = createElement('button');
+    // const button2 = createElement('button');
+
+    // button1.innerHTML = 'הוראות משחק';
+    // button2.innerHTML = 'איפוס משחק';
+
+    // board.appendChild(button1);
+    // board.appendChild(button2);
+
+    // button1.addEventListener('click' , () =>{
+    //     document.querySelector('.three.show').style.display = 'block';
+    // })
+
 };
+
+        function timerOn(){
+            timerInterval = setInterval(() => {
+                const date = new Date(timer * 1000);
+                const s = date.getSeconds();
+                const m = date.getMinutes();
+                document.querySelector(".timer").innerHTML = `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
+                timer++;
+                // while (s >= 2){
+                //     let timerOnTime = document.querySelector(".timer");
+                //     timerOnTime.style.color = "red";
+
+                // }
+    
+                if(isGameover){
+                    clearInterval(timerInterval);
+                }
+        }, 1000);
+        };
+   
+
 
 
 //פונקציה הבודקת אם יש מנצח דרך מערך שבנוי ממערכים המכיל אינדקסים שבהם יש מנצח
@@ -63,37 +137,64 @@ function check() {
 
         //בדיקה אם כל הערכים במערך הפנימי שווים - כלומר יש מנצח
         if(res.every(val => val == 'x')){
-            winner = 'x';
+            winnerIs = 'x';
+            winnerArray = arr;
             break;
 
         } else if (res.every(val => val == 'o')) {
-            winner = 'o';
+            winnerIs = 'o';
+            winnerArray = arr;
             break;
         }
-        
     }
 };
 
 //פונקציה המכריזה על סןף המשחק - או שיש מנצח או שכל המשבצות מלאות 
-function gameOver(){
-    if(winner){
-        const winner = document.createElement("div");
-        winner.classList.add("winner");
-        winner.innerHTML = `ניצח`;
+// function gameover(){
+//     if(winnerIs == 'x'){
+//         showWinner(`המנצח הוא ${namePlayer1}`);
 
-        document.body.appendChild(winner);
+//     } else if (winnerIs =='o'){
+//         showWinner(`המנצח הוא ${namePlayer2}`);
 
-    } else {
-        const nobody = document.createElement("div");
-        nobody.classList.add("nobody");
-        nobody.innerHTML = 'אין מנצח';
+//     } else{
+//         showWinner("אין מנצחים המשחק נגמר");
 
-        document.body.appendChild(nobody);
-    }
+//     }};
+    
 
-    //התחלה מחדש של המשחק - תוך טעינת מסך
-    setTimeout(() => {
-        location.reload();
-    }, 7 * 1000);
+//     function showWinner(text) {
+//         const winner = document.createElement("div");
+//         winner.classList.add("winner");
+//         winner.innerHTML = text;
+    
+//         board.appendChild(winner);
+//     }
+    
+    function gameover(){
+        if(winnerIs){
+            const winner = document.createElement("div");
+            winner.classList.add("winner");
 
-}
+            if(winnerIs == 'x'){
+                winner.innerHTML = `המנצח <br> הוא <br> ${namePlayer1}`;
+    
+            }else {
+                winner.innerHTML = `המנצח <br> הוא <br> ${namePlayer2}`;
+            }
+            document.body.appendChild(winner);
+
+        } else{
+            const nobody = document.createElement("div");
+            nobody.classList.add("winner");
+            nobody.innerHTML = ' המשחק נגמר, אין מנצח';
+            document.body.appendChild(nobody);
+        }
+        };
+
+    // התחלה מחדש של המשחק - תוך טעינת מסך
+    // setTimeout(() => {
+    //     location.reload();
+    // }, 7 * 1000);
+
+
