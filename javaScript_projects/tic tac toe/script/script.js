@@ -116,10 +116,6 @@ function createBoard(){
 
            
         });
-        
-    // const buttonInstructions = document.createElement('button');
-    // buttonInstructions.className = 'buttonInstructions';
-    // board.appendChild(buttonInstructions);
 
 };
 

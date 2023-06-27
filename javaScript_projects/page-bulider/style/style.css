@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
+
+html {
+    min-height: 100%;
+}
+
+body {
+    direction: rtl;
+    padding-bottom: 200px;
+}
+
+* {
+    font-family: 'Rubik', sans-serif;
+}
+
+.mobileAlert {
+    display: none;
+    color: red;
+    font-size: 2em;
+    text-align: center;
+}
+
+.frame {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 300px 3fr;
+}
+
+@media (max-width: 768px) {
+    .mobileAlert {
+        display: block;
+    }
+
+    .frame {
+        display: none;
+    }
+}
+
+.frame>div {
+    overflow: auto;
+    padding: 8px;
+}
+
+.panelSide {
+    background-color: #000052;
+    padding-bottom: 150px !important;
+}
+
+.panelSide h1 {
+    color: white;
+    margin: 12px 8px;
+}
+
+.pageSide {
+    background-color: #dcdcdc;
+}
+
+.page {
+    width: 100%;
+    max-width: 21cm;
+    min-height: 600px;
+    background-color: white;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.429);
+    margin: 24px auto;
+    box-sizing: border-box;
+}
+
+section {
+    padding: 12px;
+}
+
+label {
+    display: block;
+    color: white;
+    padding-bottom: 6px;
+}
+
+.elements button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 3px;
+    border: none;
+    display: block;
+    width: 60%;
+    font-size: 18px;
+    margin: 16px auto;
+}
+
+.elements button:hover {
+    background-color: #5fc962;
+}
+
+input, select {
+    border: 1px solid black;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 3px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1px;
+}
+
+nav a {
+    background: antiquewhite;
+    padding: 8px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+nav a:hover {
+    background: #fecd8d;
+}
+
+.active {
+    background: #fac27a;
+}
+
+.elements {
+    display: none;
+}
+
+.elements section:not(section:first-child) {
+    display: none;
+}
