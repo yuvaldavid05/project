@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <link rel="stylesheet" href="../project2/style/project2.css">
+    <script src="script/script.js"></script>
 
     <title>project 2</title>
 </head>
@@ -23,15 +23,15 @@
 
                 <label>
                     שם מלא:
-                    <input class="form-control input2" type="text" name="fullName">
+                    <input class="form-control input2" type="text" name="fullName" required>
                 </label>
 
                 <label>
                     דוא"ל:
-                    <input class="form-control input2" type="email" name="email">
+                    <input class="form-control input2" type="email" name="email" required>
                 </label>
 
-                <button class="btn btn-primary button2">שליחה</button>
+                <button class="btn btn-primary button2" onclick="form2()">שליחה</button>
             </form>
         </div>
         <div class="col-md-7">

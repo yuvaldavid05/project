@@ -120,6 +120,13 @@ body{
     form{
         padding:120px;
     }
+
+    .col-md-5 .send{
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        padding-top:40px;
+    }
     h1{
         font-size: 35px;
         font-weight: 900;

@@ -30,7 +30,10 @@ body{
     z-index: 2;
     padding: 45px;
     box-sizing: border-box;
-    
+}
+
+.inside .send{
+    font-size: 22px;
 }
 h2{
     font-size: 28px;

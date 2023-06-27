@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/script.js"></script>
     <title>project 6</title>
 
 
@@ -98,20 +99,20 @@
 
             <label>
                 שם מלא:
-                <input class="form-control input2" type="text" name="fullName">
+                <input class="form-control input2" type="text" name="fullName" required>
             </label>
 
             <label>
                 דוא"ל:
-                <input class="form-control input2" type="email" name="email">
+                <input class="form-control input2" type="email" name="email" required>
             </label>
             
             <label>
                 תוכן:
-                <textarea class="form-control input2" rows="5" cols="20" name="text-area"></textarea>
+                <textarea class="form-control input2" rows="5" cols="20" name="text-area" required></textarea>
             </label>
 
-            <button class="btn btn-primary button2">שליחה</button>
+            <button class="btn btn-primary button2" onclick="form6()">שליחה</button>
         </form>
     </div>
     

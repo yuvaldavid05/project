@@ -165,7 +165,10 @@ form button{
     border: 1px solid rgba(128, 128, 128, 0.73);
     display:block;
     margin-top: 25px;
-    
+}
+
+.send{
+    font-size: 23px;
 }
 
 @media (max-width: 767px) {

@@ -59,6 +59,10 @@ body {
   border-radius: 1px;
   margin: 15px 0;
 }
+.inside .send {
+  font-size: 25px;
+  color: black;
+}
 
 @media (max-width: 768px) {
   .inside {

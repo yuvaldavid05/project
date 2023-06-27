@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/project5.css">
+    <script src="script/script.js"></script>
     <title>Project 5</title>
 </head>
 
@@ -32,7 +33,7 @@
         <div></div>
         <div></div>
         <div>
-            <form>
+            <form >
                 <h3>ספרו לנו על החוויה שלכם</h3>
                 <p>לורם איפסום או בקיצור ליפסום, הוא מלל מקובל וחסר משמעות המשמש “ממלא מקום” בעת עריכ.</p>
 
@@ -40,14 +41,14 @@
                 <label>
                     שם מלא:
                 </label>
-                    <input class="input1 text" type="text" name="fullName">
+                    <input class="input1 text" type="text" name="fullName" required>
                 </div>
     
                 <div>
                 <label>
                     דוא"ל:
                 </label>
-                    <input class="input1 text" type="email" name="email">
+                    <input class="input1 text" type="email" name="email" required>
                 </div>
 
 
@@ -55,11 +56,11 @@
                 <label>
                     החוויה שלכם:
                 </label>
-                    <textarea class="input1" rows="7" cols="20" name="text-area"></textarea>
+                    <textarea class="input1" rows="7" cols="20" name="text-area" required></textarea>
                 </div>
     
                 <div>
-                <button class="button1">שליחה</button>
+                <button class="button1" onclick="form5()">שליחה</button>
                 </div>
             </form>
         </div>

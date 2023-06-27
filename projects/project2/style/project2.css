@@ -30,6 +30,11 @@ body {
     justify-content: center;
 }
 
+.col-md-5 .send{
+    font-size: 17px;
+    text-align: center;
+}
+
 form {
     max-width: 350px;
     padding:20px;
