@@ -92,47 +92,51 @@ a.nav-link {
   padding: 6px 32px;
 }
 
-#gallery {
+#gallery, #gallery-js {
   padding: 60px 0;
   background-color: #f3f3f3;
 }
-#gallery h2 {
+#gallery h2, #gallery-js h2 {
   text-align: center;
   font-weight: bold;
 }
-#gallery .row {
+#gallery .row, #gallery-js .row {
   max-width: 1000px;
   padding: 16px;
   margin: auto;
 }
-#gallery .row > div {
+#gallery .row > div, #gallery-js .row > div {
   padding: 16px;
 }
-#gallery .row .card {
+#gallery .row .card, #gallery-js .row .card {
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
   transition: 1.5s;
 }
-#gallery .row .card:hover {
+#gallery .row .card:hover, #gallery-js .row .card:hover {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1607843137);
   scale: 1.1;
 }
-#gallery .row .card .card-body {
+#gallery .row .card .card-body, #gallery-js .row .card .card-body {
   padding: 2rem 1rem;
 }
-#gallery .row .card .card-body h4 {
+#gallery .row .card .card-body h4, #gallery-js .row .card .card-body h4 {
   font-size: 25px;
   font-weight: bold;
 }
-#gallery .row .card .card-body p {
+#gallery .row .card .card-body p, #gallery-js .row .card .card-body p {
   margin-top: 20px;
   font-size: 15px;
 }
-#gallery .row .card .card-body a {
+#gallery .row .card .card-body a, #gallery-js .row .card .card-body a {
   margin-top: 20px;
   border-radius: 30px;
   padding: 6px 32px;
+}
+
+#gallery-js {
+  background-color: rgba(197, 227, 168, 0.538);
 }
 
 #contact {
@@ -158,6 +162,11 @@ a.nav-link {
   font-size: 1.4em;
   border-radius: 30px;
   padding: 6px 32px;
+}
+#contact .send {
+  font-size: 45px;
+  font-weight: 600;
+  color: whitesmoke;
 }
 
 #links {

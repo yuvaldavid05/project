@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="./style_potrfolio/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/script_portfolio.js"></script>
     <title>Portfolio</title>
 </head>
 
@@ -149,6 +150,79 @@
         </div>
     </section>
 
+    <section id="gallery-js">
+        <h2>עבודות JavaScript</h2>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="icons/projects-screenshot/sc-Project4.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">Here & Now</h4>
+                        <p class="card-text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק.</p>
+
+                        <a href="projects/project4/index_pj4.html" target="_blank" class="btn btn-info">לעמוד הפרוייקט</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="icons/projects-screenshot/sc-project2.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">קפה טוב לבוקר טוב</h4>
+                        <p class="card-text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק.</p>
+
+                        <a href="projects/project2/index_pj2.html" target="_blank" class="btn btn-info">לעמוד הפרוייקט</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="icons/projects-screenshot/sc-Project3.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">תן לנו להוביל אותך קדימה</h4>
+                        <p class="card-text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק.</p>
+
+                        <a href="projects/project3/index_pj3.html" target="_blank" class="btn btn-info">לעמוד הפרוייקט</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="icons/projects-screenshot/sc-Project1.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">תן לנו להוביל אותך קדימה</h4>
+                        <p class="card-text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק.</p>
+
+                        <a href="projects/project1/index_pj1.html" target="_blank" class="btn btn-info">לעמוד הפרוייקט</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="icons/projects-screenshot/sc-Project5.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">לגלות את העולם</h4>
+                        <p class="card-text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק.</p>
+
+                        <a href="projects/project5/index_pj5.html" target="_blank" class="btn btn-info">לעמוד הפרוייקט</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="icons/projects-screenshot/sc-project6.png" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">לחשוב מחוץ לקופסא</h4>
+                        <p class="card-text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק.</p>
+
+                        <a href="projects/project6/index_pj6.html" class="btn btn-info">לעמוד הפרוייקט</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="mt-4 p-5">
         <div class="col-sm-6">
             <h2>צור קשר</h2>
@@ -157,16 +231,18 @@
 
             <form>
                 <label class="form-label">שם:</label>
-                <input class="form-control" type="name">
+                <input class="form-control" type="name" required>
 
                 <label class="form-label">אימייל:</label>
-                <input class="form-control" type="name">
+                <input class="form-control" type="name" >
 
                 <label class="form-label">טלפון:</label>
-                <input class="form-control" type="name">
+                <input class="form-control" type="name" >
 
                 <label class="form-label">הודעה:</label>
                 <textarea class="form-control" cols="30" rows="10"></textarea>
+                <button  onclick="form_portfolio()">שליחה</button>
+               
             </form>
         </div>
     </section>

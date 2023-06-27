@@ -1,4 +1,5 @@
 const board = document.querySelector('.board');
+const frame = document.querySelector('.frame');
 let counter = 0;
 let winnerIs;
 let isGameover = false;
@@ -40,7 +41,17 @@ function createBoard(){
         divAll.push(div);
 
         board.appendChild(div);
+
+       
         
+        
+        const x = document.querySelector('section #player1');
+        const o = document.querySelector('section #player2');
+        if(x.innerHTML == '' && o.innerHTML == ''){
+            namePlayer1 = 'x';
+            namePlayer2 = 'o';
+        } 
+
         //יצירת שלבי המשחק כאשר כל תור זוגי הוא של שחקן o
         div.addEventListener('click', ev => {
             // במידה וכבר נגמר המשחק אז לבטל את הכניסה להאזנה 
@@ -79,20 +90,40 @@ function createBoard(){
         });
     }
 
-    // const button1 = createElement('button');
-    // const button2 = createElement('button');
+        const button1 = document.createElement('button');
+        const button2 = document.createElement('button');
 
-    // button1.innerHTML = 'הוראות משחק';
-    // button2.innerHTML = 'איפוס משחק';
+        button1.className = 'button1';
+        button2.className = 'button2';
 
-    // board.appendChild(button1);
-    // board.appendChild(button2);
+        button1.innerHTML = 'הוראות משחק';
+        button2.innerHTML = 'איפוס משחק';
 
-    // button1.addEventListener('click' , () =>{
-    //     document.querySelector('.three.show').style.display = 'block';
-    // })
+        frame.appendChild(button1);
+        frame.appendChild(button2);
+
+        button1.addEventListener('click' , () =>{
+            document.querySelector('.three.show').style.display = 'block';
+        });
+
+        button2.addEventListener('click' , () => {
+            // const div = document.querySelectorAll('.board div');
+            divAll.every(val => val.innerHTML == '');
+            // clearInterval(timerInterval);
+            timer = 0;
+            timerOn();
+            clearInterval(timerInterval);
+
+           
+        });
+        
+    // const buttonInstructions = document.createElement('button');
+    // buttonInstructions.className = 'buttonInstructions';
+    // board.appendChild(buttonInstructions);
 
 };
+
+        
 
         function timerOn(){
             timerInterval = setInterval(() => {
@@ -177,6 +208,7 @@ function check() {
             winner.classList.add("winner");
 
             if(winnerIs == 'x'){
+                
                 winner.innerHTML = `המנצח <br> הוא <br> ${namePlayer1}`;
     
             }else {
@@ -193,8 +225,13 @@ function check() {
         };
 
     // התחלה מחדש של המשחק - תוך טעינת מסך
-    // setTimeout(() => {
-    //     location.reload();
-    // }, 7 * 1000);
+    function stop(){
+        // setTimeout(() => {
+        //     location.reload();
+        // }, 7 * 1000);
+        
+        // clearInterval(timerInterval);
+
+    }
 
 

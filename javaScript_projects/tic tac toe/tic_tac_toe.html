@@ -35,8 +35,8 @@
                   <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                 </div>
                 <div class="toast-body">
-                 יש לבחור שמות לשחקנים (ניתו גם להשאיר ריק ולקבל שם כללי)
-                 *יש ללחוץ על "הוסף" בשני המקרים
+                  ניתן לבחור שמות לשחקנים , לאפשר לשחק אנונימי (לחצו על הוסף בלבד) או אפילו לא לרשום בכלל  ( X \ O המשחק יסווג אוטומטית)
+                
                 </div>
               </div>
               
@@ -47,7 +47,10 @@
                   <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                 </div>
                 <div class="toast-body">
-                  מתחילים לשחק על ידי לחיצה על התחל משחק
+                  מתחילים לשחק על ידי לחיצה על התחל משחק ומנצחים
+                  <br>
+                  <br>
+                  תהנו!
                 </div>
               </div>
 
@@ -58,17 +61,19 @@
                 </div>
                 <div class="toast-body">
                   1. המשחק מיועד לשני שחקנים
+                  <br>
                   2. בכל שלב במשחק ניתן לאפס את המשחק
+                  <br>
                   3. מוצב טיימר לכל תור של שחקן (עד 15 שניות לתור)
                 </div>
               </div>
 
         <label>
-        <input type="text" placeholder=" שם השחקן" id="first">
+        <input type="text" placeholder=" שם השחקן" id="first" required>
         </label>
 
         <label>
-            <input type="text" placeholder="שם השחקן" id="second"> 
+            <input type="text" placeholder="שם השחקן" id="second" required> 
         </label>
         <button class="name" onclick="logInPLayers()">הוסף</button>
 
@@ -77,8 +82,6 @@
 
         <div class="board">
 
-            <!-- <button>הוראות משחק</button>
-            <button>איפוס משחק</button> -->
         </div>
     </div>
 </body>
