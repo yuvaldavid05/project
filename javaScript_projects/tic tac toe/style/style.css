@@ -233,6 +233,18 @@ h1{
     .one.toast.show, .two.toast.show , .three.toast.show{
         display:none;
     }
+
+    .winner{
+        width:300px;
+        height:250px;
+        font-size: 35px;
+        
+        position: absolute;
+        margin: auto;
+        right:0;
+        left:0;
+        top:300px;
+    }
 }
 
 @media (max-width: 400px) {
