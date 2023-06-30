@@ -29,14 +29,28 @@ function createGame(){
 
     const p = document.createElement('p');
     div.appendChild(p);
+    // div.appendChild(inputPlay);
 
     const number1 = Math.floor(Math.random() * 20) + 1;
     const number2 = Math.floor(Math.random() * 20) + 1;
     const rand = Math.floor(Math.random() * arrOperations.length);
 
     // p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} = ${inputPlay} `;
+    
+        p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
 
-    p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
+        if(number1 < number2){
+        return p.innerHTML = `${number2} ${change(arrOperations[rand])} ${number1} =  `;
+        }
+    
+        if(number1 % number2 != 0){
+            
+ 
+        }
+
+
+    
+
 
     console.log(number1);
     console.log(number2);
