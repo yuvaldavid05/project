@@ -1,0 +1,46 @@
+body{
+    direction: rtl;
+    background-color: rgba(127, 255, 212, 0.697);
+}
+
+h1{
+    text-align: center;
+}
+
+.frame{
+    width:650px;
+    min-height:400px;
+    background-color: rgba(28, 26, 26, 0.421);
+    margin:60px auto;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.num1{
+    width:100px;
+    height:100px;
+    background-color: yellow;
+    border: 2px solid black;
+}
+
+.num2{
+    width:100px;
+    height:100px;
+    background-color: green;
+    border: 2px solid black;
+}
+
+.operations{
+    width:100px;
+    height:100px;
+    background-color: blue;
+    border: 2px solid black;
+    
+}
+
+.div{
+    width:350px;
+    height:350px;
+    border:3px solid green;
+}

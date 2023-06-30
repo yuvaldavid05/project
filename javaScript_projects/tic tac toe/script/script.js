@@ -88,37 +88,53 @@ function createBoard(){
                 gameover();
             }
         });
+        const buttonHow = document.createElement('button');
+        const buttonPlay = document.createElement('button');
+    
+        buttonHow.className = 'button1';
+        buttonPlay.className = 'button2';
+    
+        buttonHow.innerHTML = 'הוראות משחק';
+        buttonPlay.innerHTML = 'איפוס משחק';
+    
+        frame.appendChild(buttonHow);
+        frame.appendChild(buttonPlay);
+
+        
     }
 
-        const button1 = document.createElement('button');
-        const button2 = document.createElement('button');
 
-        button1.className = 'button1';
-        button2.className = 'button2';
+    // button1.addEventListener('click' , () =>{
+    //     document.querySelector('.three.show').style.display = 'block';
+    // });
 
-        button1.innerHTML = 'הוראות משחק';
-        button2.innerHTML = 'איפוס משחק';
+    // buttonPlay.addEventListener('click' , stop());
 
-        frame.appendChild(button1);
-        frame.appendChild(button2);
-
-        button1.addEventListener('click' , () =>{
-            document.querySelector('.three.show').style.display = 'block';
-        });
-
-        button2.addEventListener('click' , () => {
-            // const div = document.querySelectorAll('.board div');
-            divAll.every(val => val.innerHTML == '');
-            // clearInterval(timerInterval);
-            timer = 0;
-            timerOn();
-            clearInterval(timerInterval);
-
-           
-        });
-
+    // buttonPlay.addEventListener('click' , () => {
+    //     // const div = document.querySelectorAll('.board div');
+    //     divAll.every(val => val.innerHTML == '');
+    //     // clearInterval(timerInterval);
+    //     timer = 0;
+    //     timerOn();
+    //     clearInterval(timerInterval);
+    // });
 };
 
+    function startOver(){
+        const buttonHow = document.querySelector('buttonHow');
+        const buttonPlay = document.querySelector('buttonPlay');
+    
+        buttonPlay.addEventListener('click' , () =>{
+            location.reload();
+            clearInterval(timerInterval);
+        });
+
+        buttonHow.addEventListener('click' , () => {
+            document.querySelector('.three .toast .show').style.display = 'block';
+        })
+    }
+
+    startOver();
         
 
         function timerOn(){
@@ -175,19 +191,6 @@ function check() {
         }
     }
 };
-
-//פונקציה המכריזה על סןף המשחק - או שיש מנצח או שכל המשבצות מלאות 
-// function gameover(){
-//     if(winnerIs == 'x'){
-//         showWinner(`המנצח הוא ${namePlayer1}`);
-
-//     } else if (winnerIs =='o'){
-//         showWinner(`המנצח הוא ${namePlayer2}`);
-
-//     } else{
-//         showWinner("אין מנצחים המשחק נגמר");
-
-//     }};
     
 
 //     function showWinner(text) {
@@ -221,13 +224,14 @@ function check() {
         };
 
     // התחלה מחדש של המשחק - תוך טעינת מסך
-    function stop(){
-        // setTimeout(() => {
-        //     location.reload();
-        // }, 7 * 1000);
-        
-        // clearInterval(timerInterval);
+    // function stop(){
+    //     // setTimeout(() => {
+    //     //     location.reload();
+    //     // }, 7 * 1000);
 
-    }
+    //     location.reload();
+    //     clearInterval(timerInterval);
+
+    // }
 
 
