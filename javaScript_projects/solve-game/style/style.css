@@ -1,6 +1,7 @@
 body{
     direction: rtl;
     background-color: rgba(127, 255, 212, 0.697);
+    background-image: url(../images/background-images.webp);
 }
 
 h1{
@@ -12,23 +13,24 @@ h1{
     min-height:400px;
     background-color: rgba(28, 26, 26, 0.421);
     margin:60px auto;
-    display: flex;
-    justify-content:center;
-    align-items:center;
+ 
 }
-
-.num1{
+/* 
+.div1{
     width:100px;
     height:100px;
     background-color: yellow;
     border: 2px solid black;
+    font-size: 40px;
 }
 
-.num2{
+.div2{
     width:100px;
     height:100px;
     background-color: green;
     border: 2px solid black;
+    font-size: 40px;
+
 }
 
 .operations{
@@ -36,11 +38,36 @@ h1{
     height:100px;
     background-color: blue;
     border: 2px solid black;
+    font-size: 40px;
     
-}
+} */
 
 .div{
-    width:350px;
+    width:600px;
     height:350px;
-    border:3px solid green;
+   
+    /* display: flex; */
+    /* justify-content:center; */
+    /* align-items:center; */
+
+    position:relative;
+}
+div p{
+    font-size: 60px;
+    position:absolute;
+    top:90px;
+    right:43px;
+
+}
+div input{
+    width:230px;
+    height:60px;
+    font-size: 50px;
+
+
+    position:absolute;
+    margin:auto;
+    top:0;
+    bottom:0;
+    left:80px;
 }

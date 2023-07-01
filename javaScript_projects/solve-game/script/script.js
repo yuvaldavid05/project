@@ -2,63 +2,83 @@ const frame = document.querySelector('.frame');
 const arrOperations = ['חיבור' ,'חיסור' ,'כפל' ,'חילוק'];
 const i = 1;
 let x;
-const inputPlay = document.createElement('input');
+let big = false;
+let solution;
+let result;
+let win = [];
+
+
 function createGame(){
-
-    // const num1 = document.createElement('div');
-    // const num2 = document.createElement('div');
-    // const operations = document.createElement('div');
-    // const res = document.createElement('input');
-
-    // num1.className = 'num1';
-    // num2.className = 'num2';
-    // operations.className = 'operations';
-    // res.className ='res';
-
-
-    // frame.appendChild(num1);
-    // frame.appendChild(num2);
-    // frame.appendChild(operations);
-    // frame.appendChild(res);
-
-    // num1.innerHTML = Math.random * 10 ;
-
-    const div = document.createElement('div');
-    div.className = 'div';
-    frame.appendChild(div);
+    const div = document.querySelector('.frame div');
 
     const p = document.createElement('p');
     div.appendChild(p);
-    // div.appendChild(inputPlay);
 
-    const number1 = Math.floor(Math.random() * 20) + 1;
-    const number2 = Math.floor(Math.random() * 20) + 1;
-    const rand = Math.floor(Math.random() * arrOperations.length);
+    startGame();
 
-    // p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} = ${inputPlay} `;
+    // let number1 = Math.floor(Math.random() * 20) + 1;
+    // let number2 = Math.floor(Math.random() * 20) + 1;
+    // let rand = Math.floor(Math.random() * arrOperations.length);
     
-        p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
 
-        if(number1 < number2){
-        return p.innerHTML = `${number2} ${change(arrOperations[rand])} ${number1} =  `;
+    //     p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
+    //     solution = solve(number1,number2,change(arrOperations[rand]));
+
+        // if(number1 < number2){
+        //     big = true;
+        //     if(change(arrOperations[rand]) == '/'){
+        //         if(number1 % number2 != 0){
+        //             return;
+        //         }
+        //     } else {
+                
+        //         return p.innerHTML = `${number2} ${change(arrOperations[rand])} ${number1} =  `;
+        //     }
+        // }
+    
+        // if(change(arrOperations[rand]) == '/'){
+        //     if(big && number1 % number2 != 0){
+        //         p.innerHTML = `${number2} ${change(arrOperations[rand])} ${number1} =  `;
+        //     } 
+        
+        // }
+    // console.log(number1);
+    // console.log(number2);
+    // console.log(arrOperations[rand]);
+    // console.log(change(arrOperations[rand]));
+
+}
+
+
+
+
+function startGame(){
+    const p = document.querySelector('p');
+
+
+    let number1 = Math.floor(Math.random() * 20) + 1;
+    let number2 = Math.floor(Math.random() * 20) + 1;
+    let rand = Math.floor(Math.random() * arrOperations.length);
+    
+    if(arrOperations[rand] == 'חילוק'){
+        if(number2 < number1 || number1 % number2 != 0){
+            startGame();
         }
+    }
     
-        if(number1 % number2 != 0){
-            
- 
-        }
-
-
-    
-
-
     console.log(number1);
     console.log(number2);
     console.log(arrOperations[rand]);
     console.log(change(arrOperations[rand]));
 
+        p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
+        solution = solve(number1,number2,change(arrOperations[rand]));
+
+    
+
+}
+
     function change(place){
-        // place = arrOperations[rand];
         if(place == 'חיבור'){
             return x = '+';
         }
@@ -78,7 +98,54 @@ function createGame(){
     }
 
 
+    function solve(num1 , num2, oper){
+        if(oper == '+'){
+                return num1 + num2; 
+                 
+        }
+
+        if(oper == '-'){
+                    return num1 - num2;  
+        }
+
+        if(oper == '*'){
+                return num1 * num2; 
+        }
+
+        if(oper == '/'){
+                return num1 / num2;
+        }
+    }
+
+
+    function answer(ev) {
+        const value = ev.target.value;
+
+        if (ev.keyCode === 13 && value) {
+            if(value == solution){
+                console.log('נכון');
+                console.log(solution);
+                win.push(+value);
+                console.log(win);
+
+            } else {
+                console.log('לא נכון');
+            }
+            
+            // איפסנו את האינפוט
+            ev.target.value = "";
+        }
+       
+    }
         
+
+
+
+    // input.addEventListener('change', ev =>{
+    //     answer(ev.value);
+    // });
+
+
     // switch (arrOperations[rand]) {
     //     case 'חיבור': x = '+'; break;
     //     case 'חיסור': x = '-'; break;
@@ -88,9 +155,11 @@ function createGame(){
 
  
 
+// function play(){
+//     setInterval(createGame() ,
+//     1000);
+// }
 
 
 
 
-
-}
