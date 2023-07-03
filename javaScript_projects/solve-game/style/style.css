@@ -1,5 +1,5 @@
 body{
-    direction: rtl;
+    direction: ltr;
     background-color: rgba(127, 255, 212, 0.697);
     background-image: url(../images/background-images.webp);
 }
@@ -53,21 +53,22 @@ h1{
     position:relative;
 }
 div p{
-    font-size: 60px;
+    font-size: 65px;
     position:absolute;
-    top:90px;
-    right:43px;
+    top:83px;
+    left:50px;
 
 }
 div input{
     width:230px;
     height:60px;
     font-size: 50px;
+    display:none;
 
 
     position:absolute;
     margin:auto;
     top:0;
     bottom:0;
-    left:80px;
+    right:50px;
 }

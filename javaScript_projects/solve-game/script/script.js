@@ -1,6 +1,6 @@
 const frame = document.querySelector('.frame');
 const arrOperations = ['חיבור' ,'חיסור' ,'כפל' ,'חילוק'];
-const i = 1;
+let i = 0;
 let x;
 let big = false;
 let solution;
@@ -53,29 +53,36 @@ function createGame(){
 
 
 function startGame(){
+    
+   while (i <= 12){
     const p = document.querySelector('p');
 
-
+    document.querySelector('.frame input').style.display = "block";
     let number1 = Math.floor(Math.random() * 20) + 1;
     let number2 = Math.floor(Math.random() * 20) + 1;
     let rand = Math.floor(Math.random() * arrOperations.length);
-    
-    if(arrOperations[rand] == 'חילוק'){
-        if(number2 < number1 || number1 % number2 != 0){
-            startGame();
-        }
+
+    if(arrOperations[rand] == 'חילוק' &&  number1 % number2 != 0 || number2 % number1 != 0){
+        // startGame();
+}
+
+    if(arrOperations[rand] == 'חילוק' && number1 > number2 ){
+        const temp = number1;
+        number1 = number2;
+        number2 = temp;
     }
+
     
+            p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
+            
+            solution = solve(number1,number2,change(arrOperations[rand]));
+
+
     console.log(number1);
     console.log(number2);
     console.log(arrOperations[rand]);
     console.log(change(arrOperations[rand]));
-
-        p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
-        solution = solve(number1,number2,change(arrOperations[rand]));
-
-    
-
+}
 }
 
     function change(place){
@@ -125,11 +132,16 @@ function startGame(){
             if(value == solution){
                 console.log('נכון');
                 console.log(solution);
+                // i++;
                 win.push(+value);
+                ev.target.value = "";
+                startGame();
+                
                 console.log(win);
 
             } else {
                 console.log('לא נכון');
+
             }
             
             // איפסנו את האינפוט

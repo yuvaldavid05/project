@@ -11,14 +11,16 @@
     <script src="script/script.js" defer></script>
 </head>
 
-<body onload="createGame()">
+<body>
     <h1>משחק תרגילים</h1>
 
     <div class="frame">
         <div class="div">
         <input onkeyup="answer(event)" type="number" min="0" max="10" id="inputAnswer">
-        <button>שבר</button>
-        <button>לא יודע - דלג</button>
+
+        <button onclick="createGame()">התחל משחק</button>
+        <!-- <button>שבר</button>
+        <button>לא יודע - דלג</button> -->
         <!-- <button onclick="answer(ev)">בדיקה</button> -->
 
        <!-- <input type="radio">
