@@ -9,80 +9,86 @@ let win = [];
 
 
 function createGame(){
-    const div = document.querySelector('.frame div');
+    // const div = document.querySelector('.frame div');
 
     const p = document.createElement('p');
     div.appendChild(p);
 
     startGame();
 
-    // let number1 = Math.floor(Math.random() * 20) + 1;
-    // let number2 = Math.floor(Math.random() * 20) + 1;
-    // let rand = Math.floor(Math.random() * arrOperations.length);
-    
-
-    //     p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
-    //     solution = solve(number1,number2,change(arrOperations[rand]));
-
-        // if(number1 < number2){
-        //     big = true;
-        //     if(change(arrOperations[rand]) == '/'){
-        //         if(number1 % number2 != 0){
-        //             return;
-        //         }
-        //     } else {
-                
-        //         return p.innerHTML = `${number2} ${change(arrOperations[rand])} ${number1} =  `;
-        //     }
-        // }
-    
-        // if(change(arrOperations[rand]) == '/'){
-        //     if(big && number1 % number2 != 0){
-        //         p.innerHTML = `${number2} ${change(arrOperations[rand])} ${number1} =  `;
-        //     } 
-        
-        // }
-    // console.log(number1);
-    // console.log(number2);
-    // console.log(arrOperations[rand]);
-    // console.log(change(arrOperations[rand]));
-
-}
+    const divNum1 = document.createElement('div');
+    const divNum2 = document.createElement('div');
+    const divOp = document.createElement('div');
 
 
 
 
-function startGame(){
-    
-   while (i <= 12){
-    const p = document.querySelector('p');
 
-    document.querySelector('.frame input').style.display = "block";
     let number1 = Math.floor(Math.random() * 20) + 1;
     let number2 = Math.floor(Math.random() * 20) + 1;
     let rand = Math.floor(Math.random() * arrOperations.length);
-
-    if(arrOperations[rand] == 'חילוק' &&  number1 % number2 != 0 || number2 % number1 != 0){
-        // startGame();
-}
-
-    if(arrOperations[rand] == 'חילוק' && number1 > number2 ){
-        const temp = number1;
-        number1 = number2;
-        number2 = temp;
-    }
-
     
-            p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
-            
-            solution = solve(number1,number2,change(arrOperations[rand]));
 
+        p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
+        solution = solve(number1,number2,change(arrOperations[rand]));
 
+        if(number1 < number2){
+            big = true;
+            if(change(arrOperations[rand]) == '/'){
+                if(number1 % number2 != 0){
+                    return;
+                }
+            } else {
+                
+                return p.innerHTML = `${number2} ${change(arrOperations[rand])} ${number1} =  `;
+            }
+        }
+    
+        if(change(arrOperations[rand]) == '/'){
+            if(big && number1 % number2 != 0){
+                p.innerHTML = `${number2} ${change(arrOperations[rand])} ${number1} =  `;
+            } 
+        
+        }
     console.log(number1);
     console.log(number2);
     console.log(arrOperations[rand]);
     console.log(change(arrOperations[rand]));
+
 }
+
+
+
+
+function startGame(p){
+    // const p = document.querySelector('p');
+
+    // document.querySelector('.frame input').style.display = "block";
+//     let number1 = Math.floor(Math.random() * 20) + 1;
+//     let number2 = Math.floor(Math.random() * 20) + 1;
+//     let rand = Math.floor(Math.random() * arrOperations.length);
+
+//     if(arrOperations[rand] == 'חילוק' &&  number1 % number2 != 0 || number2 % number1 != 0){
+//         // startGame();
+
+
+//     if(arrOperations[rand] == 'חילוק' && number1 > number2 ){
+//         const temp = number1;
+//         number1 = number2;
+//         number2 = temp;
+//     }
+
+    
+//             p.innerHTML = `${number1} ${change(arrOperations[rand])} ${number2} =  `;
+            
+//             solution = solve(number1,number2,change(arrOperations[rand]));
+
+
+//     console.log(number1);
+//     console.log(number2);
+//     console.log(arrOperations[rand]);
+//     console.log(change(arrOperations[rand]));
+// }
 }
 
     function change(place){
@@ -132,7 +138,6 @@ function startGame(){
             if(value == solution){
                 console.log('נכון');
                 console.log(solution);
-                // i++;
                 win.push(+value);
                 ev.target.value = "";
                 startGame();

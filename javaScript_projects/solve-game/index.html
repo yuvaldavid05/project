@@ -6,27 +6,28 @@
     <title>משחק תרגילים</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <!-- <link rel="stylesheet" href="style/style.css"> -->
+    <link rel="stylesheet" href="style/style2.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script src="script/script.js" defer></script>
+    <!-- <script src="script/script.js" defer></script> -->
+    <script src="script/script2.js" defer></script>
 </head>
 
-<body>
+<body onload="createGame()">
     <h1>משחק תרגילים</h1>
 
     <div class="frame">
-        <div class="div">
-        <input onkeyup="answer(event)" type="number" min="0" max="10" id="inputAnswer">
+        <!-- <div class="inside"> -->
+        <input type="number" min="0" max="10" id="inputAnswer">
 
-        <button onclick="createGame()">התחל משחק</button>
+        <!-- <button onclick="createGame()">התחל משחק</button> -->
+
+        <!-- onkeyup="answer(event)"  -->
         <!-- <button>שבר</button>
         <button>לא יודע - דלג</button> -->
         <!-- <button onclick="answer(ev)">בדיקה</button> -->
 
-       <!-- <input type="radio">
-       <input type="radio">
-       <input type="radio"> -->
-    </div>
+    <!-- </div> -->
     </div>
 </body>
 
