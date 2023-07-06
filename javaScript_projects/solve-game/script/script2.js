@@ -1,9 +1,10 @@
 const frame = document.querySelector('.frame');
+const game = document.querySelector('.game');
 const end = document.querySelector('.end');
 const arrOperations = ['חיבור' ,'חיסור' ,'כפל' ,'חילוק'];
 let i = 0;
 let solution;
-let result;
+// let result;  
 let right = [];
 
 
@@ -24,12 +25,11 @@ function createGame(){
     const inputGame = document.createElement('input');
     inputGame.className = 'inputGame';
 
-    frame.appendChild(divNum1);
-    frame.appendChild(divOp);
-    frame.appendChild(divNum2); 
-    frame.appendChild(Equal); 
-    frame.appendChild(inputGame); 
-
+    game.appendChild(divNum1);
+    game.appendChild(divOp);
+    game.appendChild(divNum2); 
+    game.appendChild(Equal); 
+    game.appendChild(inputGame);    
     startGame();
 }
 
@@ -44,6 +44,20 @@ function startGame(){
     let number1 = Math.floor(Math.random() * 20) + 1;
     let number2 = Math.floor(Math.random() * 20) + 1;
     let rand = Math.floor(Math.random() * arrOperations.length);
+
+
+    if(number1 < number2 ){
+            const temp = number1;
+            number1 = number2;
+            number2 = temp;
+        }
+
+    if(arrOperations[rand] == 'חילוק'){
+        if(number1 % number2 != 0){
+            startGame();
+            return;
+        }
+    }
 
     divNum1.innerHTML = number1;
     divOp.innerHTML = change(arrOperations[rand]);
@@ -103,7 +117,8 @@ function chack(){
 
         if(value && value == solution){
             console.log('נכון');
-            btn.style.backgroundColor = 'green';
+            btn.classList.toggle = 'right';
+            // btn.style.backgroundColor = 'green';
             right.push(+value);
             
         }else if (value && value != solution){
@@ -120,7 +135,7 @@ function chack(){
     console.log(right);
     console.log(i);
     startGame();
-    document.querySelector('.frame input').value = "";
+    document.querySelector('.game input').value = "";
 
 
     
@@ -128,14 +143,13 @@ function chack(){
 
 
 function gameOver(){
-    document.querySelector('h1').style.display = 'none';
     document.querySelector('.frame').style.display = 'none';
 
     const divGameOver = document.createElement('div');
     divGameOver.className = 'gameOver';
 
     divGameOver.innerHTML = `<br> נגמר המשחק 
-    תוצאות המשחק הן : <br> <br> ${right.length} תשובות נכונות`
+    תוצאות המשחק הן : <br> <br> ${right.length} : תשובות נכונות`
 
     end.appendChild(divGameOver);
 }
@@ -161,4 +175,8 @@ function answer(ev) {
         ev.target.value = "";
     }
    
+}
+
+function timer(){
+
 }
