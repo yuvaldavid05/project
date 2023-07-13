@@ -158,24 +158,24 @@ function gameOver(){
 
 
 
-function answer(ev) {
-    const value = ev.target.value;
+// function answer(ev) {
+//     const value = ev.target.value;
 
-    if (ev.keyCode === 13 && value) {
-        if(value == solution){
-            ev.target.value = "";
-            startGame();
+//     if (ev.keyCode === 13 && value) {
+//         if(value == solution){
+//             ev.target.value = "";
+//             startGame();
         
 
-        } else {
+//         } else {
 
-        }
+//         }
         
-        // איפסנו את האינפוט
-        ev.target.value = "";
-    }
+//         // איפסנו את האינפוט
+//         ev.target.value = "";
+//     }
    
-}
+// }
 
 function timer(){
 

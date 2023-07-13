@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>מערכת התחברות</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script/script.js" defer></script>
+</head>
+
+<body>
+    <div class="frame">
+        <div class="login">
+            <h1>מערכת התחברות</h1>
+            <label>
+                שם משתמש:
+                <br>    
+                <input type="text" id="userName">
+            </label>
+
+            <label>
+                סיסמא:
+                <br>
+                <input type="password">
+            </label>
+
+            <button onclick="login()">התחבר</button>
+
+            <p>עוד לא רשום לאתר שלנו? <a href="">להרשמה לחץ כאן!</a></p>
+        </div>
+    </div>
+
+    <div class="loaderFrame">
+        <div class="loader"></div>
+    </div>
+
+    <div id="snackbar"></div>
+</body>
+
+</html>
