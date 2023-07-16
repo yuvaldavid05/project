@@ -11,7 +11,7 @@
     <script src="script/script.js" defer></script>
 </head>
 
-<body>
+<body onload="loginStatus()">
     <div class="frame">
         <div class="login">
             <h1>מערכת התחברות</h1>
@@ -27,15 +27,46 @@
                 <input type="password">
             </label>
 
-            <button onclick="login()">התחבר</button>
+            <button onclick="login()" >התחבר</button>
 
             <p>עוד לא רשום לאתר שלנו? <a href="">להרשמה לחץ כאן!</a></p>
         </div>
+
+        <div class="user">
+            <span class="userName"></span>
+            <button class="logout" onclick="logout()">התנתק</button>
+        </div>
+
+        <div class="products">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>שם המוצר</th>
+                        <th>מחיר</th>
+                        <th>הנחה (%)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td><input id="name" type="text" placeholder="שם המוצר"></td>
+                        <td><input id="price" type="number" placeholder="מחיר"></td>
+                        <td><input id="discount" type="number" placeholder="הנחה"></td>
+                        <td><button onclick="addProduct()">הוסף</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 
-    <div class="loaderFrame">
+    <!-- <div class="loaderFrame">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <div id="snackbar"></div>
 </body>

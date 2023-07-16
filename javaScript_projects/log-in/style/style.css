@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Heebo:wght@200;300;400;600;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cousine:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700;900&display=swap');
 
 
 /* font-family: 'Heebo', sans-serif; */
@@ -15,7 +16,6 @@ html{
 
 body{
     font-family: 'Amatic SC', cursive;
-       /* font-family: 'Cousine', monospace; */
     direction: rtl;
 }
 
@@ -23,6 +23,7 @@ body{
     width:600px;
     height:600px;
     margin:50px auto ;
+    padding: 5px 10px 2px 7px;
     background-color:rgba(122, 255, 34, 0.749);
     border-radius: 12px;
 }
@@ -95,6 +96,67 @@ h1{
     text-decoration: underline;
     cursor: pointer;
 }
+
+.user{
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    margin:12px;
+    font-size: 22px;
+    position: sticky;
+}
+
+.user button , .products button {
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    float:left;
+    width: 80px;
+    height:35px;
+    font-weight: 700;
+    border:none;
+    border-radius: 12px;
+    border-bottom: 3px solid #333;
+    background-color: rgb(206, 198, 198);
+    cursor: pointer;
+}
+
+.user button:hover {
+    background-color: blanchedalmond;
+}
+.products {
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    text-align: center;
+    font-size: 15px;
+}
+
+.products th{
+    font-weight: 900;
+}
+
+.products button{
+    height:30px;
+    width: 70px;
+   font-weight: 500;
+
+}
+
+.products button:hover{
+    background-color:rgba(5, 96, 5, 0.627);
+}
+
+/* .products>tbody>tr{
+    border: 5px solid #333;
+} */
+
+.products input{
+    width:150px;
+    height:30px;
+    margin:5px;
+    font-size: 15px;
+    border-radius: 10px;
+    border:none;
+    text-align: center;
+}
+
+
+
 
 
 @media (max-width : 900px) {
