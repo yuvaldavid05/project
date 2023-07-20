@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>מערכת התחברות</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_signup.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script/script_signUp.js" defer></script>
+</head>
+
+<body>
+        <div class="frame">
+            <div class="signup">
+                <h1>
+                    <u>הרשמה לאתר:</u>
+                </h1>
+                <label>
+                    שם מלא:
+                    <br>    
+                    <input type="text" id="fullName">
+                </label>
+    
+                <label>
+                    אימייל:
+                    <br>    
+                    <input type="email" id="email">
+                </label>
+    
+                <label>
+                    שם משתמש:
+                    <br>
+                    <input type="userName" id="userName">
+                </label>
+    
+                <label>
+                    סיסמא:
+                    <br>
+                    <input type="password" id="password">
+                </label>
+    
+                <button onclick="signUp()" >להרשמה</button>
+                <button class="back"><a href="index.html" > <- חזרה</a></button>
+    
+                <img src="images/a3a543e8127471b0b5486903ee45752c.jpg">
+            </div>
+    
+            <div class="success">
+                <p>נרשמת בהצלחה!</p>
+                <p>מקווים שתהנו מאתרנו, זמינים ואוהבים!</p>
+                <button><a href="index.html">חזרה לדף הבית ></a></button>
+            </div>
+    
+        </div>
+        <div id="snackbar"></div>
+</body>

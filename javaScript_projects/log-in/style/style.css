@@ -7,24 +7,27 @@
 
 html{
     width:100%;
+    height: 100vh;
     background-image: url(./../images/Green\ Academia.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-    /* background-position: 91% 9%; */
 }
 
 body{
+    min-width:100%;
+    max-height:100vh;
     font-family: 'Amatic SC', cursive;
     direction: rtl;
 }
 
 .frame{
-    width:600px;
-    height:600px;
+    max-width: 750px;
+    min-height:600px;
     margin:50px auto ;
     padding: 5px 10px 2px 7px;
-    background-color:rgba(122, 255, 34, 0.749);
+    /* background-color:rgba(122, 255, 34, 0.749); */
+    background-color:rgba(152, 252, 84, 0.77);
     border-radius: 12px;
 }
 
@@ -70,6 +73,7 @@ h1{
     border:none;
     background-color: darkgoldenrod;
     margin-top:25px;
+    cursor: pointer;
 
 
     position:absolute;
@@ -77,6 +81,11 @@ h1{
     right:0;
     left:0;
     top:350px;
+}
+
+.login button:hover{
+    filter: brightness(1.2);
+    
 }
 
 
@@ -97,11 +106,13 @@ h1{
     cursor: pointer;
 }
 
+
 .user{
     font-family: 'Noto Sans Hebrew', sans-serif;
     margin:12px;
     font-size: 22px;
     position: sticky;
+    display: none;
 }
 
 .user button , .products button {
@@ -120,30 +131,51 @@ h1{
 .user button:hover {
     background-color: blanchedalmond;
 }
+
+
 .products {
     font-family: 'Noto Sans Hebrew', sans-serif;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
+    display: none;
 }
 
 .products th{
     font-weight: 900;
 }
 
-.products button{
+.products .add{
     height:30px;
-    width: 70px;
+    width: 120px;
    font-weight: 500;
 
 }
 
-.products button:hover{
+.add:hover{
     background-color:rgba(5, 96, 5, 0.627);
 }
 
-/* .products>tbody>tr{
-    border: 5px solid #333;
-} */
+
+
+.products td:nth-child(6){
+    display: flex;
+}
+
+.products .remove ,.products .save {
+    background: none;
+    border:none;
+    margin:0;
+    padding:0;
+    width:50px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.remove:hover,
+.save:hover {
+    scale: 1.5;
+}
+
 
 .products input{
     width:150px;
@@ -155,6 +187,11 @@ h1{
     text-align: center;
 }
 
+.products .onmedia{
+    font-size: 50px;
+    display: none;
+}
+
 
 
 
@@ -162,7 +199,19 @@ h1{
 @media (max-width : 900px) {
     .frame{
         width:75%;
-        padding:0 22px 18px 22px;
+        padding:0 22px;
+    }
+
+    .login h1{
+        font-size: 40px;
+    }
+
+    .products table{
+        display: none;
+    }
+
+    .products .onmedia{
+        display: block;
     }
 }
 
