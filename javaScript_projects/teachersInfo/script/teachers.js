@@ -80,9 +80,10 @@ class TeachersInfo {
             info.style.display = "none";
         });
         (_b = info.querySelector('.sick')) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+            var _a;
             const divSick = document.createElement("div");
             divSick.innerHTML = ` נשארו עוד: ${this.sickDayLeft(this.teachers[i].sickDayUsed)} ימים לניצול`;
-            info.appendChild(divSick);
+            (_a = info.querySelector('.modalframe')) === null || _a === void 0 ? void 0 : _a.appendChild(divSick);
         });
         (_c = info.querySelector('.students')) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
             var _a;

@@ -115,7 +115,7 @@ class TeachersInfo {
             const divSick = document.createElement("div");
             divSick.innerHTML = ` נשארו עוד: ${this.sickDayLeft(this.teachers[i].sickDayUsed)} ימים לניצול`;
 
-            info.appendChild(divSick);
+            info.querySelector('.modalframe')?.appendChild(divSick);
         });
 
         info.querySelector('.students')?.addEventListener("click", () => {
