@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 class TeachersInfo {
     constructor() {
         this.teachers = [
@@ -58,22 +57,24 @@ class TeachersInfo {
         const info = document.createElement("div");
         info.className = 'info';
         info.innerHTML = `
-        <button class="close">X</button>
-        <p>ת.ז: ${this.teachers[i].id}</p>
-        <p>שם מלא: ${this.teachers[i].fullName}</p>
-        <p>גיל: ${this.teachers[i].age}</p>
-        <p>מגדר: ${this.teachers[i].gender}</p>
-        <p>טלפון: ${this.teachers[i].phone}</p>
-        <p>מספר כיתות לימוד: ${this.teachers[i].numClasses}</p>
+        <div class="modalframe">
+            <button class="close">X</button>
+            <p>ת.ז: ${this.teachers[i].id}</p>
+            <p>שם מלא: ${this.teachers[i].fullName}</p>
+            <p>גיל: ${this.teachers[i].age}</p>
+            <p>מגדר: ${this.teachers[i].gender}</p>
+            <p>טלפון: ${this.teachers[i].phone}</p>
+            <p>מספר כיתות לימוד: ${this.teachers[i].numClasses}</p>
 
-        <button class="students">לחישוב מספר התלמידים הכולל</button>
+            <button class="students">לחישוב מספר התלמידים הכולל</button>
 
-        <p>מקצועות לימוד: ${this.teachers[i].subjects}</p>
-        <p>ותק: ${this.teachers[i].seniority}</p>
-        <p>משכורת: ${this.teachers[i].salary}</p>
-        <p>ימי מחלה שנוצלו: ${this.teachers[i].sickDayUsed}</p>
+            <p>מקצועות לימוד: ${this.teachers[i].subjects}</p>
+            <p>ותק: ${this.teachers[i].seniority}</p>
+            <p>משכורת: ${this.teachers[i].salary}</p>
+            <p>ימי מחלה שנוצלו: ${this.teachers[i].sickDayUsed}</p>
 
-        <button class="sick">לבדיקת ימי מחלה שנשארו</button>
+            <button class="sick">לבדיקת ימי מחלה שנשארו</button>
+        </div>
         `;
         (_a = info.querySelector('.close')) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
             info.style.display = "none";
