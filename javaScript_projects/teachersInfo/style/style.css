@@ -1,26 +1,39 @@
 body{
-    direction: rtl;
-    padding:8px;
     min-width: 100%;
+    direction: rtl;
+    /* background-color: rgb(27, 178, 178); */
+    background-color: rgb(57, 70, 70);
 }
 frame{
     position: relative;
 }
 h2{
     text-align: center;
+    font-size: 40px;
+    padding: 25px 15px;
+    color:wheat;
 }
 .frameTeachers{
+    margin:auto;
+    max-width: 900px;
+    min-height: 600px;
+    background-color: rgba(235, 224, 213, 0.888);
+    /* box-shadow: 0 0 20px gray; */
+    box-shadow: 7px 6px 19px gray;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: auto auto auto;
 
-    /* width: 100%; */
-    background-color: bisque;
-    padding-right: 100px;
+    
 }
 
 .teachers{
     width:200px;
-    height:150px;
+    height:200px;
+    display: inline;
     margin:25px;
-    background-color: rgb(201, 156, 101);
+    background-color: rgb(207, 159, 100);
+
     border: 1px solid gray;
     border-radius: 8px;
     box-shadow: 0 0 5px;
@@ -46,30 +59,70 @@ h2{
 
 .modalframe{
     width:80%;
-    max-width: 400px;
+    max-width: 500px;
     min-height: 300px;
     background-color: rgba(34, 37, 49, 0.755);
    display: block;
    border: 1px solid gray;
-   font-size: 12px;
+   font-size: 15px;
    color:antiquewhite;
    font-weight: bold;
    padding: 12px;
    border-radius: 12px;
    animation: slide-bottom 0.555s cubic-bezier(.25,.46,.45,.94) both;
-
+   
    margin:auto;
   
 }
 
+ #myBtn{
+    width: 55px;
+    height: 35px;
+    font-size: 18px;
+    border:1px solid black;
+    /* background: rgb(171, 129, 136); */
+    background: rgb(188, 162, 167);
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+#myBtn:hover{
+    filter: brightness(1.2);
+}
 
 .modalframe button{
     transition: 0.5s;
-    
+}
+
+.modalframe .close{
+    border:none;
+    background: none;
+    color:antiquewhite;
+    font-size: 18px;
+    border: 1px solid wheat;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.avgStudents{
+    border:none;
+    background-color:rgba(213, 218, 177, 0.845);
+    color:black;
+    border-radius: 5px;
+    font-size:15px; 
+
 }
 
 .modalframe button:hover{
     scale: 1.1;
+}
+
+.sick {
+    display: inline-block;
+}
+
+.divSick{
+    display: inline;
 }
 
 @keyframes slide-bottom {
