@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/main.js" defer></script>
+</head>
+
+<body onload="createBoard()">
+    <div class="allPage">
+        <h1>
+            <u>סידור שבועי</u>
+        </h1>
+        <button class="save" onclick="save()">שמור</button>
+        <div class="tasks">
+            <label class="content"> הוסף משימה:
+                <input type="text">
+            </label>
+
+            <label>
+                בחר יום:
+                <select class="day">
+                    <option></option>
+                    <option>יום א</option>
+                    <option>יום ב</option>
+                    <option>יום ג</option>
+                    <option>יום ד</option>
+                    <option>יום ה</option>
+                    <option>יום ו</option>
+                    <option>יום ש</option>
+                </select>
+            </label>
+
+            <button class="add" onclick="addTask()">
+                <u>+ הוסף</u></button>
+        </div>
+
+        <div class="frame">
+
+            <div class="sunday">יום א</div>
+            <div class="monday">יום ב</div>
+            <div class="tuesday">יום ג</div>
+            <div class="wednesday">יום ד</div>
+            <div class="thursday">יום ה</div>
+            <div class="friday">יום ו</div>
+            <div class="saturday">יום ש</div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
