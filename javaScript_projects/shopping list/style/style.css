@@ -103,7 +103,7 @@ h1{
     margin: auto;
     border-radius: 12px;
     display:grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-columns: repeat(7, 1fr);
 }
 
 .frame div{
@@ -111,7 +111,7 @@ h1{
     border:  1px solid black;
     background-color: bisque;
     color:black;
-    padding-top: 20px;
+    padding: 20px 5px 5px 5px;
 }
 
 .frame div p{
@@ -123,8 +123,8 @@ h1{
     border-bottom: none;
     border-top:none;
 }
-
-/* .frame .divs:hover{
+/* 
+.frame .divs{
     scale: 0.9;
 } */
 
@@ -141,6 +141,10 @@ h1{
     font-size: 22px;
 }
 
+.show {
+    content: 'X';
+    background-color: rgba(72, 241, 184, 0.674);
+}
 
 /* 
 table{
