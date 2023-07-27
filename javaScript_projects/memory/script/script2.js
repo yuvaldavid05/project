@@ -11,24 +11,49 @@ board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 
 
 function createBoard() {
+
+
     for (let i = 0; i < length; i++) {
+        // const randomNum = Math.floor(Math.random() * xArry.length);
         const div = document.createElement('div');
         board.appendChild(div);
         divs.push(div);
 
 
+        if (x <= length / 2) {
+            xArry.push(x);
+            x++;
+        } else {
+            x = 1;
+            xArry.push(x);
+            x++;
+        }
 
-        // const span = document.createElement('span');
-        // span.innerHTML = i + 1;
 
-        // const random = Math.floor(Math.random() * xArry
-        //     .length);
+        const span = document.createElement('span');
+        span.innerHTML = xArry[i];
+        div.appendChild(span);
+        // span.innerHTML = xArry[randomNum];
 
-        // const span = document.createElement('span');
-        // span.innerHTML = xArry[random];
+        // if (i % 2 == 0) {
+        //     span.innerHTML = i + 1;
+        //     div.appendChild(span);
+        // } else if (i % 2 == 1) {
+        //     span.innerHTML = i + 1;
+        //     div.appendChild(span);
+        // }
 
-        // xArry.splice(xArry[random], 1);
-        // divs.splice(divs[random], 1);
+
+
+        // if (x < length / 2) {
+        //     span.innerHTML = x + 1;
+        // } else {
+        //     x = 1;
+        //     span.innerHTML = x;
+        // }
+
+        // xArry.splice(randomNum, 1);
+
 
         // div.appendChild(span);
 
@@ -38,21 +63,32 @@ function createBoard() {
                 return;
             }
 
-            ev.target.classList.add('showing')
+            ev.target.classList.add('showing');
         });
 
     }
 
-    if (x <= length / 2) {
-        xArry.push(x);
-        x++;
-    } else {
-        x = 1;
-        xArry.push(x);
-        x++;
-    }
+    rand();
     // div.appendChild(span);
-    random(divs);
+    // random(divs);
+}
+
+
+
+function rand() {
+
+
+    const arr = [];
+    const len = xArry.length;
+
+    for (let i = 0; i < len; i++) {
+        const rand = Math.floor(Math.random() * xArry.length);
+
+        arr.push(xArry[rand]);
+        xArry.splice(rand, 1);
+    }
+
+    xArry = arr;
 }
 
 function random(arry) {
@@ -66,16 +102,14 @@ function random(arry) {
         let randomNum = Math.floor(Math.random() * xArry.length);
 
         if (divs[randomDiv] != null) {
+            const div = document.querySelector(".board div:nth-child(2)");
 
-            const div = divs[randomDiv];
-            // const span = document.createElement('span');
-            div.innerHTML = xArry[randomNum];
-            xArry.splice(xArry[randomNum], 1);
+            const span = document.createElement('span');
+            span.innerHTML = xArry[randomNum];
+            xArry.splice(randomNum, 1);
 
             divs[randomDiv] = null;
-            // const array1 = document.querySelectorAll(".board div");
-            // const div1 = array1[randomDiv];
-            // div.appendChild(span);
+            div.appendChild(span);
         }
 
 
