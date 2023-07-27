@@ -1,23 +1,68 @@
 body{
     direction: rtl;
+    background-color:#e3cdea;
+}
+
+h1{
+    text-align: center;
+    font-size: 35px;
 }
 
 .frame{
-    background-color: aqua;
+    width: 90%;
+    background-color:#d9a5b3;
+    border-radius: 12px;
+    padding: 10px 25px 12px 25px;
+    margin: auto;
+    box-shadow: 0 0 20px #00000029;
 }
 
-.wordFrame{
-    min-width:200px;
-    height:200px;
-    border: 1px solid gray;
-    background-color: beige;
+h2{
+   text-align: center;
+   font-size: 30px;
+}
+
+.attempts{
+    width:350px;
+    height:65px;
+    background-color: #348ad4;
+    border-radius: 15px;
+    border: 1px solid black;
     display: flex;
 }
 
+.attempts .divsAttempts{
+    width:25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color:#d0b5bc;
+    border: 1px solid black;
+    margin:8px;
+}
+
+.wordFrame{
+    min-width:80%;
+    height:200px;
+    margin: 25px;
+    border: 1px solid gray;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+
+    
+    
+}
+
 .divGuessLetter{
-    width:150px;
-    height:100px;
-    font-size: 25px;
+    width:120px;
+    height:70px;
+    font-size: 55px;
+    margin:15px 8px;
+    text-align:center;
+
+    
+
 }
 
 .keyboardFrame{
@@ -26,13 +71,16 @@ body{
 }
 
 .letterAB{
-    text-align: center;
-    margin:5px;
-    width:30px;
-    height:30px;
+    margin:10px;
+    width:50px;
+    height:50px;
+    font-size:25px;
+    font-weight: 800;
     border-radius: 50%;
-    background-color: rgb(192, 124, 36);
+    text-align: center;
+    background-color: #1868ae;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .letterAB:hover {

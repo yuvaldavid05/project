@@ -4,6 +4,7 @@ const wordFrame = document.querySelector(".wordFrame");
 const keyboardFrame = document.querySelector(".keyboardFrame");
 const arrayAB = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת', 'ך', 'מ', 'ן', 'ף', 'ץ'];
 let divs = [];
+const divsAttemptsArray = [];
 
 const category = {
     cities: ["חיפה", "נס-ציונה", "אילת", "תל-אביב"],
@@ -27,9 +28,10 @@ function game() {
         case 'movies': nameCategory = "סרטים"; break;
         case 'animals': nameCategory = "חיות"; break;
     }
-    const h2 = document.createElement("h2");
+
+    const h2 = document.querySelector("h2");
     h2.innerHTML = `קטגוריה : ${nameCategory}`
-    frame.appendChild(h2);
+
 
     //מערך של המפתח הרנדומלי שיצא
     const c = category[categoryPicked];
@@ -41,9 +43,10 @@ function game() {
     for (let i = 0; i < c[randomWord].length; i++) {
         const divGuessLetter = document.createElement("div");
         divGuessLetter.className = "divGuessLetter";
-        divGuessLetter.style.border = "1px solid black";
+        divGuessLetter.style.borderBottom = "1px solid black";
         if (wordRandom[i] == "-") {
             divGuessLetter.innerHTML = "-";
+            divGuessLetter.style.borderBottom = "none";
         }
         divs.push(divGuessLetter);
         console.log(wordRandom[i])
@@ -51,6 +54,13 @@ function game() {
         wordFrame.appendChild(divGuessLetter);
     }
 
+    const attempts = document.querySelector(".attempts");
+    for (let i = 0; i < 6; i++) {
+        const divsAttempts = document.createElement("div");
+        divsAttempts.className = "divsAttempts";
+        divsAttemptsArray.push(divsAttempts);
+        attempts.appendChild(divsAttempts);
+    }
 
     //יצירה של המקלדת
     for (let i = 0; i < arrayAB.length; i++) {
@@ -77,6 +87,7 @@ function game() {
                     console.log(l);
                     console.log(letterABclicked);
                 } else {
+
                     x++;
                 }
             }
@@ -96,6 +107,7 @@ function game() {
 }
 game();
 
+//פונקציה שמחזירה T/F אם קיימת אות יותר מפעם אחת
 function moreThenOneLetter(array) {
     for (let i = 0; i < array.length; i++) {
         for (let y = i; y <= array.length; y++) {
