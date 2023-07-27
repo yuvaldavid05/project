@@ -1,0 +1,41 @@
+body{
+    direction: rtl;
+}
+
+.frame{
+    background-color: aqua;
+}
+
+.wordFrame{
+    min-width:200px;
+    height:200px;
+    border: 1px solid gray;
+    background-color: beige;
+    display: flex;
+}
+
+.divGuessLetter{
+    width:150px;
+    height:100px;
+    font-size: 25px;
+}
+
+.keyboardFrame{
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+}
+
+.letterAB{
+    text-align: center;
+    margin:5px;
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    background-color: rgb(192, 124, 36);
+    transition: 0.5s;
+}
+
+.letterAB:hover {
+    scale: 1.1;
+    filter: brightness(1.1);
+}

@@ -4,131 +4,64 @@ const length = width * height;
 const divs = [];
 let isGameOver = false;
 let x = 1;
-const xArry = [];
+let xArray = [];
 
 const board = document.querySelector(".board");
-board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
+// board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 
 
-function createBoard() {
-
-
+//פונקציה שבונה דיבים ללוח 
+function showDiv() {
     for (let i = 0; i < length; i++) {
-        // const randomNum = Math.floor(Math.random() * xArry.length);
         const div = document.createElement('div');
         board.appendChild(div);
         divs.push(div);
 
-
-        if (x <= length / 2) {
-            xArry.push(x);
-            x++;
-        } else {
-            x = 1;
-            xArry.push(x);
-            x++;
-        }
-
-
-        const span = document.createElement('span');
-        span.innerHTML = xArry[i];
+        const span = document.createElement("span");
+        span.innerHTML = xArray[i];
         div.appendChild(span);
-        // span.innerHTML = xArry[randomNum];
-
-        // if (i % 2 == 0) {
-        //     span.innerHTML = i + 1;
-        //     div.appendChild(span);
-        // } else if (i % 2 == 1) {
-        //     span.innerHTML = i + 1;
-        //     div.appendChild(span);
-        // }
-
-
-
-        // if (x < length / 2) {
-        //     span.innerHTML = x + 1;
-        // } else {
-        //     x = 1;
-        //     span.innerHTML = x;
-        // }
-
-        // xArry.splice(randomNum, 1);
-
-
-        // div.appendChild(span);
-
-        // אירוע המופעל בלחיצה על העכבר
-        div.addEventListener("click", ev => {
-            if (isGameOver) {
-                return;
-            }
-
-            ev.target.classList.add('showing');
-        });
-
     }
-
-    rand();
-    // div.appendChild(span);
-    // random(divs);
+    // console.log(xArray)
+    console.log(xArray);
 }
 
+function spanDivs(array1, array2) {
 
+}
 
-function rand() {
+function buildArray() {
+    for (let i = 0; i < 2; i++) {
+        for (let x = 0; x < length / 2; i++) {
+            xArray.push(x + 1);
+        }
+    }
+    console.log(xArray);
 
+    randomArray(xArray);
+    showDiv();
+}
 
-    const arr = [];
-    const len = xArry.length;
+buildArray();
+
+//פונקציה שמערבבת מערך
+function randomArray(arrChange) {
+    let arr = [];
+    const len = arrChange.length;
 
     for (let i = 0; i < len; i++) {
-        const rand = Math.floor(Math.random() * xArry.length);
+        const rand = Math.floor(Math.random() * arrChange.length);
 
-        arr.push(xArry[rand]);
-        xArry.splice(rand, 1);
+        arr.push(arrChange[rand]);
+        arrChange.splice(rand, 1);
     }
 
-    xArry = arr;
+    arrChange = arr;
+    console.log(arrChange);
 }
 
-function random(arry) {
-    // for (let i = 0; i <= arry.length; i++) { }
-    // const random = Math.floor(Math.random() * divs.length);
-    // const span = document.createElement('span');
-
-    let i = 0;
-    while (i <= arry.length) {
-        let randomDiv = Math.floor(Math.random() * divs.length);
-        let randomNum = Math.floor(Math.random() * xArry.length);
-
-        if (divs[randomDiv] != null) {
-            const div = document.querySelector(".board div:nth-child(2)");
-
-            const span = document.createElement('span');
-            span.innerHTML = xArry[randomNum];
-            xArry.splice(randomNum, 1);
-
-            divs[randomDiv] = null;
-            div.appendChild(span);
-        }
-
-
-    }
-
-
-    // divs[random].span.innerHTML = x;
-    // divs.splice(i, 1);
-}
 
 function gameOver() {
     board.classList.add('game-over');
-
-    confetti({
-        particleCount: 100,
-        spread: 70,
-        decay: 0.9,
-        origin: { y: 0.6 }
-    });
 
     const winner = document.createElement("div");
     winner.classList.add("winner");
