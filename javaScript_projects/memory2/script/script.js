@@ -2,6 +2,8 @@ let nameCategory = null;
 const frame = document.querySelector(".frame");
 const wordFrame = document.querySelector(".wordFrame");
 const keyboardFrame = document.querySelector(".keyboardFrame");
+const attempts = document.querySelector(".attempts");
+
 const arrayAB = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת', 'ך', 'מ', 'ן', 'ף', 'ץ'];
 let divs = [];
 const divsAttemptsArray = [];
@@ -70,6 +72,16 @@ function game() {
         keyboardFrame.appendChild(letterAB);
 
         letterAB.addEventListener("click", (ev) => {
+
+
+            divsAttemptsArray[0].style.backgroundColor = "red";
+            divsAttemptsArray.splice(0, 1);
+            if (divsAttemptsArray.length == 2) {
+                const span = document.createElement("span");
+                span.innerHTML = "נשארו עוד 2 ניסיונות";
+                attempts.appendChild(span);
+            }
+
             const letterABclicked = ev.target.innerHTML;
             console.log(letterABclicked);
 
@@ -87,9 +99,9 @@ function game() {
                     console.log(l);
                     console.log(letterABclicked);
                 } else {
-
                     x++;
                 }
+                worng();
             }
         })
     }
@@ -106,6 +118,16 @@ function game() {
 
 }
 game();
+
+// function worng() {
+//     divsAttemptsArray[0].style.backgroundColor = "red";
+//     divsAttemptsArray.splice(0, 1);
+//     if (divsAttemptsArray.length == 2) {
+//         const span = document.createElement("span");
+//         span.innerHTML = "נשארו עוד 2 ניסיונות";
+//         attempts.appendChild(span);
+//     }
+// };
 
 //פונקציה שמחזירה T/F אם קיימת אות יותר מפעם אחת
 function moreThenOneLetter(array) {
