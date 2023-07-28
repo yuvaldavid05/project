@@ -16,11 +16,15 @@ h1{
     padding: 10px 25px 12px 25px;
     margin: auto;
     box-shadow: 0 0 20px #00000029;
+
+    position: relative;
 }
 
 h2{
    text-align: center;
    font-size: 35px;
+   padding: 0;
+   margin:15px;
 }
 
 h3{
@@ -47,6 +51,29 @@ h3{
     margin:8px;
 }
 
+.hintFrame{
+position: absolute;
+top:25px;
+left:30px;
+}
+
+.hintFrame .hint{
+    width:150px;
+    height:35px;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 12px;
+    border:none;
+    background-color:lightslategrey;
+    border: 1px solid rgb(183, 132, 132);
+    display: block;
+}
+
+.hintFrame .hint:hover{
+filter: brightness(1.2);
+}
+
+
 .wordFrame{
     min-width:80%;
     height:200px;
@@ -56,9 +83,6 @@ h3{
     display: flex;
     justify-content: center;
     border-radius: 25px;
-
-    
-    
 }
 
 .divGuessLetter{
@@ -67,9 +91,6 @@ h3{
     font-size: 55px;
     margin:15px 8px;
     text-align:center;
-
-    
-
 }
 
 .keyboardFrame{

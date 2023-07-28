@@ -10,7 +10,7 @@ const divsAttemptsArray = [];
 let arrPlaceLetters = [];
 
 const category = {
-    cities: ["חיפה", "נס-ציונה", "אילת", "תל-אביב"],
+    cities: ["חיפה", "נס-ציונה", "אילת", "תל-אביב", "עכו", "נתניה", "ירושלים", "פתח תקווה", "ראשון לציון", "הרצליה"],
     movies: ["טיטאניק", "ברבי", "משימה-בלתי-אפשרית"],
     animals: ["חתול", "תנין", "עכבר", "פיל"],
 };
@@ -65,12 +65,15 @@ function game() {
         attempts.appendChild(divsAttempts);
     }
 
+
+
     //יצירה של המקלדת
     for (let i = 0; i < arrayAB.length; i++) {
         const letterAB = document.createElement("div");
         letterAB.className = "letterAB";
         letterAB.innerHTML = arrayAB[i];
         keyboardFrame.appendChild(letterAB);
+
 
 
         letterAB.addEventListener("click", (ev) => {
@@ -153,6 +156,12 @@ function game() {
             }
         })
 
+        if (x()) {
+            let y = divs.findIndex(el => el.innerHTML == "");
+            divs[y] == wordRandom[y];
+            console.log(y);
+        }
+
     }
 
 
@@ -184,6 +193,18 @@ function chackLetterPlace(letter, word) {
     console.log(`x = ${x}`);
 
     return x;
+}
+
+function x() {
+    const btnHint = document.querySelector(".hint");
+
+    btnHint.addEventListener("click", () => {
+        console.log("t");
+        return true;
+    });
+
+    return false;
+
 }
 // function worng() {
 //     divsAttemptsArray[0].style.backgroundColor = "red";
