@@ -11,10 +11,13 @@
     <script src="script/script.js" defer></script>
 </head>
 
-<body>
+<body onload="game()">
     <h1>איש תלוי</h1>
     <div class="frame">
         <h2></h2>
+        <h3>
+            <u>ניסיונות:</u>
+        </h3>
         <div class="attempts">
             <!-- <div class="divsAttempts"></div>
             <div class="divsAttempts"></div>
@@ -27,6 +30,11 @@
         <div class="wordFrame"></div>
         <div class="keyboardFrame"></div>
     </div>
+
+    <div class="loaderFrame">
+        <div class="loader"></div>
+    </div>
+
 </body>
 
 </html>

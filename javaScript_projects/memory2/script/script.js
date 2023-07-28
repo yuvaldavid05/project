@@ -7,6 +7,7 @@ const attempts = document.querySelector(".attempts");
 const arrayAB = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת', 'ך', 'מ', 'ן', 'ף', 'ץ'];
 let divs = [];
 const divsAttemptsArray = [];
+let arrPlaceLetters = [];
 
 const category = {
     cities: ["חיפה", "נס-ציונה", "אילת", "תל-אביב"],
@@ -26,7 +27,7 @@ function game() {
     const categoryPicked = keys[random];
 
     switch (categoryPicked) {
-        case 'cities': nameCategory = "ערים"; break;
+        case 'cities': nameCategory = "ערים בישראל"; break;
         case 'movies': nameCategory = "סרטים"; break;
         case 'animals': nameCategory = "חיות"; break;
     }
@@ -71,39 +72,87 @@ function game() {
         letterAB.innerHTML = arrayAB[i];
         keyboardFrame.appendChild(letterAB);
 
+
         letterAB.addEventListener("click", (ev) => {
 
 
-            divsAttemptsArray[0].style.backgroundColor = "red";
-            divsAttemptsArray.splice(0, 1);
-            if (divsAttemptsArray.length == 2) {
-                const span = document.createElement("span");
-                span.innerHTML = "נשארו עוד 2 ניסיונות";
-                attempts.appendChild(span);
-            }
+            // divsAttemptsArray[0].style.backgroundColor = "red";
+            // divsAttemptsArray.splice(0, 1);
+            // if (divsAttemptsArray.length == 2) {
+            //     const span = document.createElement("span");
+            //     span.innerHTML = "נשארו עוד 2 ניסיונות";
+            //     attempts.appendChild(span);
+            // }
 
             const letterABclicked = ev.target.innerHTML;
             console.log(letterABclicked);
 
-            let x = 0;
-            for (l of wordRandom) {
-                if (letterABclicked == l) {
-                    const placeLetter = x;
-                    divs[placeLetter].innerHTML = letterABclicked;
-                    if (moreThenOneLetter(wordRandom) == true) {
-                        x++;
-                    }
+            if (chackLetterPlace(letterABclicked, wordRandom)) {
+                if (arrPlaceLetters.length != 1) {
+                    for (a of arrPlaceLetters) {
+                        divs[a].innerHTML = letterABclicked;
+                        letterAB.style.backgroundColor = "green";
+                        letterAB.style.scale = "none";
 
-                    console.log(x);
-                    console.log("מצאתי");
-                    console.log(l);
-                    console.log(letterABclicked);
-                } else {
-                    x++;
+                    }
+                    arrPlaceLetters = [];
+                } else if (arrPlaceLetters.length == 1) {
+                    divs[arrPlaceLetters[0]].innerHTML = letterABclicked;
+                    arrPlaceLetters = [];
+                    letterAB.style.backgroundColor = "green";
+                    letterAB.style.scale = "none";
                 }
-                worng();
+
+            } else {
+                console.log("לא חלק מהמשפט");
+                divsAttemptsArray[0].style.backgroundColor = "red";
+                divsAttemptsArray.splice(0, 1);
+                letterAB.style.backgroundColor = "red";
+                letterAB.style.scale = "none";
+                arrayAB[i] = null;
+                if (divsAttemptsArray.length == 2) {
+                    const span = document.createElement("span");
+                    span.innerHTML = "נשארו עוד 2 ניסיונות";
+                    attempts.appendChild(span);
+
+                } else if (divsAttemptsArray.length == 0) {
+                    const divLost = document.createElement("div");
+                    divLost.className = "divLost";
+                    frame.appendChild(divLost);
+
+                    const divLostInside = document.createElement("div");
+                    divLostInside.className = "divLostInside";
+                    divLostInside.innerHTML = `לא הצלחת לנחש את המילה והפסדת :( 
+                            <br>
+                            המילה הייתה :<b> ${wordRandom} <b>
+                            <button class="startOver" onclick="newGame()">  << לחץ כאן למשחק חוזר</button>`
+                    divLost.appendChild(divLostInside);
+                    console.log("lost");
+                }
+
+
+
+                // let x = 0;
+                // for (l of wordRandom) {
+                //     if (l == letterABclicked) {
+                //         const placeLetter = x;
+                //         divs[placeLetter].innerHTML = letterABclicked;
+                //         if (moreThenOneLetter(wordRandom) == true) {
+                //             x++;
+                //         }
+
+                //         console.log(x);
+                //         console.log("מצאתי");
+                //         console.log(l);
+                //         console.log(letterABclicked);
+                //     } else {
+                //         x++;
+                //     }
+                //     // worng();
+                // }
             }
         })
+
     }
 
 
@@ -117,8 +166,25 @@ function game() {
 
 
 }
-game();
+// game();
 
+
+function chackLetterPlace(letter, word) {
+    let x = false;
+
+    for (let i = 0; i < word.length; i++) {
+        if (letter == word[i]) {
+            console.log(i);
+            arrPlaceLetters.push(i);
+            x = true;
+        }
+
+    }
+    console.log(arrPlaceLetters);
+    console.log(`x = ${x}`);
+
+    return x;
+}
 // function worng() {
 //     divsAttemptsArray[0].style.backgroundColor = "red";
 //     divsAttemptsArray.splice(0, 1);
@@ -145,3 +211,23 @@ function moreThenOneLetter(array) {
     }
 }
 
+function newGame() {
+    loader(true);
+    setTimeout(() => {
+        location.reload();
+
+        loader(false);
+    }, 3 * 1000);
+
+}
+
+
+function loader(isShowing = false) {
+    const loaderFrame = document.querySelector('.loaderFrame');
+
+    if (isShowing) {
+        loaderFrame.style.display = 'flex';
+    } else {
+        loaderFrame.style.display = 'none';
+    }
+}
