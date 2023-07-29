@@ -10,6 +10,7 @@ let divs = [];
 const divsAttemptsArray = [];
 let arrPlaceLetters = [];
 let y = 0;
+let letterABclicked = null;
 
 const category = {
     cities: ["חיפה", "נס-ציונה", "אילת", "תל-אביב", "עכו", "נתניה", "ירושלים", "פתח-תקווה", "ראשון-לציון", "הרצליה"],
@@ -79,7 +80,21 @@ function game() {
         attempts.appendChild(divsAttempts);
     }
 
+    // window.addEventListener('keydown', ev => {
+    //     ev.preventDefault();
+    //     console.log(ev.key);
 
+    //     // // Checks which key was pressed.
+    //     switch (ev.key) {
+    //         case 'a': letterABclicked = "ש"; break;
+    //         case 'b': move('right'); break;
+    //         case 'c': move('down'); break;
+    //         case 'd': move('left'); break;
+    //         case 'e': clearInterval(interval); break;
+    //     }
+
+
+    // });
 
     //יצירה של המקלדת
     for (let i = 0; i < arrayAB.length; i++) {
@@ -100,7 +115,7 @@ function game() {
             //     attempts.appendChild(span);
             // }
 
-            const letterABclicked = ev.target.innerHTML;
+            letterABclicked = ev.target.innerHTML;
             console.log(letterABclicked);
 
 
@@ -115,7 +130,7 @@ function game() {
                             winner();
                             return;
                         }
-                        // y++;
+
                     }
                     arrPlaceLetters = [];
                 } else if (arrPlaceLetters.length == 1) {
@@ -127,13 +142,9 @@ function game() {
                         winner();
                         return;
                     }
-                    // y++;
+
                 }
 
-                // if (y == c[randomWord].length) {
-                //     winner();
-                //     return;
-                // }
 
             } else {
                 console.log("לא חלק מהמשפט");
@@ -183,18 +194,6 @@ function game() {
                 //     // worng();
                 // }
             }
-            // if (y == c[randomWord].length) {
-            //     winner();
-            //     return;
-            // }
-
-            // for (d of divs) {
-            //     (d.innerHTML != "")
-            //     all = true;
-
-            //     winner();
-            //     return;
-            // };
 
         });
 
@@ -269,11 +268,11 @@ function winner() {
     const right = document.createElement("div");
     right.classList.add("right");
     right.innerHTML = `
-   כל הכבוד! 
-    <br>
-  מצאת את המילה הנכונה 
-  <br>
-  עם ${6 - divsAttemptsArray.length} טעויות. 
+    כל הכבוד! 
+        <br>
+    מצאת את המילה הנכונה 
+        <br>
+    עם ${6 - divsAttemptsArray.length} טעויות. 
     <button class="startOver win" onclick="newGame()">  << לחץ כאן למשחק חוזר</button>`;
 
     document.body.appendChild(right);

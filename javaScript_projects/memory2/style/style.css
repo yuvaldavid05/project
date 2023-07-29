@@ -52,9 +52,9 @@ h3{
 }
 
 .hintFrame{
-position: absolute;
-top:25px;
-left:30px;
+    position: absolute;
+    top:25px;
+    left:30px;
 }
 
 .hintFrame .hint{
@@ -70,7 +70,7 @@ left:30px;
 }
 
 .hintFrame .hint:hover{
-filter: brightness(1.5);
+    filter: brightness(1.5);
 }
 
 
@@ -226,4 +226,82 @@ bottom: 0;
 
 .win {
 padding-top: -120px;
+}
+
+@media (max-width: 950px) {
+    h1{
+        padding-right: 5px;
+    }
+    .frame{
+        margin: auto;
+        width: 90%;
+        min-height: 100%;
+        padding: 0;
+        /* margin: 0; */
+    }
+
+    h2{
+        font-size: 30px;
+    }
+
+    .hintFrame{
+        left:0;
+    }
+
+    .hintFrame .hint{
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+    }
+
+    .hintFrame span{
+        display: none;
+    }
+    
+
+    .wordFrame{
+        min-height: 300px;
+        padding-bottom: 20px;
+        display:grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    h3{
+        margin-right: 10px;
+    }
+    .attempts{
+        width:250px;
+        margin-right:10px;
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+    }
+    .attempts span{
+        display: block;
+    }
+
+    .divGuessLetter{
+        width:25px;
+        font-size: 40px;
+    }
+
+    .keyboardFrame{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+
+    .keyboardFrame .letterAB{
+        margin:5px;
+    }
+
+    .divLostInside{
+        width:300px;
+    }
+    .divLostInside{
+        font-size: 20px;
+    }
+    .startOver{
+        font-size: 15px;
+        width:90%;
+        height:30px;
+    }
 }
