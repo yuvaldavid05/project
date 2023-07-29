@@ -8,9 +8,10 @@ const arrayAB = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ
 let divs = [];
 const divsAttemptsArray = [];
 let arrPlaceLetters = [];
+let y = 0;
 
 const category = {
-    cities: ["חיפה", "נס-ציונה", "אילת", "תל-אביב", "עכו", "נתניה", "ירושלים", "פתח תקווה", "ראשון לציון", "הרצליה"],
+    cities: ["חיפה", "נס-ציונה", "אילת", "תל-אביב", "עכו", "נתניה", "ירושלים", "פתח-תקווה", "ראשון-לציון", "הרצליה"],
     movies: ["טיטאניק", "ברבי", "משימה-בלתי-אפשרית"],
     animals: ["חתול", "תנין", "עכבר", "פיל"],
 };
@@ -55,7 +56,15 @@ function game() {
         console.log(wordRandom[i])
 
         wordFrame.appendChild(divGuessLetter);
+
+        if (wordRandom[i].innerHTML != "") {
+            y++;
+        }
     }
+    if (y == c[randomWord].length) {
+        console.log("הכל מלא");
+    }
+
 
     const attempts = document.querySelector(".attempts");
     for (let i = 0; i < 6; i++) {
@@ -75,7 +84,6 @@ function game() {
         keyboardFrame.appendChild(letterAB);
 
 
-
         letterAB.addEventListener("click", (ev) => {
 
 
@@ -89,6 +97,7 @@ function game() {
 
             const letterABclicked = ev.target.innerHTML;
             console.log(letterABclicked);
+
 
             if (chackLetterPlace(letterABclicked, wordRandom)) {
                 if (arrPlaceLetters.length != 1) {
