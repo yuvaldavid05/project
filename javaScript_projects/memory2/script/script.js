@@ -3,8 +3,9 @@ const frame = document.querySelector(".frame");
 const wordFrame = document.querySelector(".wordFrame");
 const keyboardFrame = document.querySelector(".keyboardFrame");
 const attempts = document.querySelector(".attempts");
+let btnHint = document.querySelector(".hint");
 
-const arrayAB = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת', 'ך', 'מ', 'ן', 'ף', 'ץ'];
+const arrayAB = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ', 'ק', 'ר', 'ש', 'ת', 'ך', 'ם', 'ן', 'ף', 'ץ'];
 let divs = [];
 const divsAttemptsArray = [];
 let arrPlaceLetters = [];
@@ -30,7 +31,7 @@ function game() {
     switch (categoryPicked) {
         case 'cities': nameCategory = "ערים בישראל"; break;
         case 'movies': nameCategory = "סרטים"; break;
-        case 'animals': nameCategory = "חיות"; break;
+        case 'animals': nameCategory = "בעלי חיים"; break;
     }
 
     const h2 = document.querySelector("h2");
@@ -57,13 +58,17 @@ function game() {
 
         wordFrame.appendChild(divGuessLetter);
 
-        if (wordRandom[i].innerHTML != "") {
-            y++;
-        }
+
     }
-    if (y == c[randomWord].length) {
-        console.log("הכל מלא");
-    }
+    btnHint.addEventListener("click", () => {
+        const y = divs.findIndex(el => el.innerHTML == "");
+        divs[y].innerHTML = wordRandom[y];
+        btnHint.disabled = true;
+        btnHint.style.filter = "none";
+        console.log(divs[y].innerHTML);
+        console.log(wordRandom[y]);
+    })
+
 
 
     const attempts = document.querySelector(".attempts");
@@ -100,12 +105,17 @@ function game() {
 
 
             if (chackLetterPlace(letterABclicked, wordRandom)) {
+
                 if (arrPlaceLetters.length != 1) {
                     for (a of arrPlaceLetters) {
                         divs[a].innerHTML = letterABclicked;
                         letterAB.style.backgroundColor = "green";
                         letterAB.style.scale = "none";
-
+                        if (allFull()) {
+                            winner();
+                            return;
+                        }
+                        // y++;
                     }
                     arrPlaceLetters = [];
                 } else if (arrPlaceLetters.length == 1) {
@@ -113,7 +123,17 @@ function game() {
                     arrPlaceLetters = [];
                     letterAB.style.backgroundColor = "green";
                     letterAB.style.scale = "none";
+                    if (allFull()) {
+                        winner();
+                        return;
+                    }
+                    // y++;
                 }
+
+                // if (y == c[randomWord].length) {
+                //     winner();
+                //     return;
+                // }
 
             } else {
                 console.log("לא חלק מהמשפט");
@@ -163,13 +183,28 @@ function game() {
                 //     // worng();
                 // }
             }
-        })
+            // if (y == c[randomWord].length) {
+            //     winner();
+            //     return;
+            // }
 
-        if (x()) {
-            let y = divs.findIndex(el => el.innerHTML == "");
-            divs[y] == wordRandom[y];
-            console.log(y);
-        }
+            // for (d of divs) {
+            //     (d.innerHTML != "")
+            //     all = true;
+
+            //     winner();
+            //     return;
+            // };
+
+        });
+
+
+
+        // if (x()) {
+        //     let y = divs.findIndex(el => el.innerHTML == "");
+        //     divs[y] == wordRandom[y];
+        //     console.log(y);
+        // }
 
     }
 
@@ -186,6 +221,13 @@ function game() {
 }
 // game();
 
+function allFull() {
+    if (divs.every(el => el.innerHTML != "")) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function chackLetterPlace(letter, word) {
     let x = false;
@@ -214,6 +256,27 @@ function x() {
 
     return false;
 
+}
+
+function winner() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        decay: 0.9,
+        origin: { y: 0.6 }
+    });
+
+    const right = document.createElement("div");
+    right.classList.add("right");
+    right.innerHTML = `
+   כל הכבוד! 
+    <br>
+  מצאת את המילה הנכונה 
+  <br>
+  עם ${6 - divsAttemptsArray.length} טעויות. 
+    <button class="startOver win" onclick="newGame()">  << לחץ כאן למשחק חוזר</button>`;
+
+    document.body.appendChild(right);
 }
 // function worng() {
 //     divsAttemptsArray[0].style.backgroundColor = "red";

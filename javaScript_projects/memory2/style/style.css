@@ -22,7 +22,7 @@ h1{
 
 h2{
    text-align: center;
-   font-size: 35px;
+   font-size: 40px;
    padding: 0;
    margin:15px;
 }
@@ -70,7 +70,7 @@ left:30px;
 }
 
 .hintFrame .hint:hover{
-filter: brightness(1.2);
+filter: brightness(1.5);
 }
 
 
@@ -161,6 +161,7 @@ bottom: 0;
 
 
 .loaderFrame {
+    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,6 +175,7 @@ bottom: 0;
 }
 
 .loader {
+    z-index: 5;
     border: 8px solid #f3f3f3;
     border-radius: 50%;
     border-top: 8px solid gray;
@@ -203,4 +205,25 @@ bottom: 0;
     100% {
         transform: rotate(360deg);
     }
+}
+
+.right{
+    font-size: 75px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    /* align-items: center;
+    justify-content: center; */
+    grid-template-columns: repeat(1, 1fr);
+    padding-top: 120px;
+    text-align: center;
+    animation: zoom-in 2s;
+    background-color: #d0b5bc9d;
+}
+
+.win {
+padding-top: -120px;
 }
