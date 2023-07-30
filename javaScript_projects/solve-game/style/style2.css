@@ -146,9 +146,6 @@ h1{
         font-size: 20px;
     }
 
-    .divNum1,.divNum2, .divOp, .Equal, .inputGame{
-        font-size: 20px;
-    }
 
     .frame div div:not(button){
         width:50px;

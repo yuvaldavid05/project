@@ -4,6 +4,7 @@ function login() {
         password: document.querySelector("input[type=password]").value,
     };
 
+    //שליחה לשרת את הנתונים להתחברות.חזרה מהשרת עם תשובה התחבר\לא תקין
     fetch("https://api.shipap.co.il/login", {
         method: 'POST',
         credentials: 'include',
@@ -23,7 +24,7 @@ function login() {
         });
 }
 
-
+//בדיקה אם המשתמש מחובר
 function loginStatus() {
     fetch("https://api.shipap.co.il/login", {
         credentials: 'include',
@@ -39,6 +40,7 @@ function loginStatus() {
         });
 }
 
+//התנתקות
 function logout() {
     fetch("https://api.shipap.co.il/logout", {
         credentials: 'include',
@@ -49,7 +51,7 @@ function logout() {
         });
 }
 
-
+//הבאה של המוצרים המותאמים לפי המשתמש
 function getProducts() {
     fetch("https://api.shipap.co.il/products", {
         credentials: 'include',
@@ -80,7 +82,7 @@ function getProducts() {
 }
 
 
-
+//עריכה ושמירה של מוצר 
 function saveProduct(id, btnElem) {
     const tr = btnElem.closest('tr');
 
@@ -105,7 +107,7 @@ function saveProduct(id, btnElem) {
 }
 
 
-
+//הוספת מוצר חדש
 function addProduct() {
     const name = document.querySelector('#name');
     const price = document.querySelector('#price');
@@ -139,7 +141,7 @@ function addProduct() {
 }
 
 
-
+//מחיקת מוצר
 function removeProduct(id, btnElem) {
     if (!confirm('האם אתה בטוח כי ברצונך למחוק את הפריט המדובר?')) {
         return;
@@ -158,7 +160,7 @@ function removeProduct(id, btnElem) {
         });
 }
 
-
+//הגדרת מצב חיבור המשתמש - הצגת הטבלה אם מחובר 
 function setUser(user = null) {
     const divLogin = document.querySelector(".login");
     const divUser = document.querySelector(".user");
@@ -177,7 +179,7 @@ function setUser(user = null) {
 }
 
 
-
+//פונקצייה להגדרת הסנייקבר 
 function snackbar(message) {
     const elem = document.getElementById("snackbar");
     elem.innerHTML = message;

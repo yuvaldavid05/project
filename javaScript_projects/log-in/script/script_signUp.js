@@ -7,6 +7,7 @@ function signUp() {
         password: document.querySelector("input[type=password]").value,
     }
 
+    // שליחה לשרת להוספת הנתונים החדשים - הרשמה
     fetch("https://api.shipap.co.il/signup", {
         method: 'POST',
         credentials: 'include',
@@ -28,7 +29,7 @@ function signUp() {
 }
 
 
-
+//פונקצייה להגדרת הסנייקבר 
 function snackbar(message) {
     const elem = document.getElementById("snackbar");
     elem.innerHTML = message;

@@ -211,7 +211,6 @@ h1{
         width:250px;
         margin: auto;
         right:100px;
-
     }
 
     .button2{
@@ -235,7 +234,10 @@ h1{
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 415px) {
+    h1{
+        font-size: 35px;
+    }
     .frame{
         margin:0;
         padding:0;
@@ -244,5 +246,10 @@ h1{
 
     .frame button{
         width:75%;
+    }
+
+    #player1 , #player2{
+        font-size: 18px;
+        
     }
 }
