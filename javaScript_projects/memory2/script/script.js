@@ -13,15 +13,15 @@ let y = 0;
 let letterABclicked = null;
 
 const category = {
-    cities: ["חיפה", "נס-ציונה", "אילת", "תל-אביב", "עכו", "נתניה", "ירושלים", "פתח-תקווה", "ראשון-לציון", "הרצליה"],
-    movies: ["טיטאניק", "ברבי", "משימה-בלתי-אפשרית"],
-    animals: ["חתול", "תנין", "עכבר", "פיל"],
+    cities: ["חיפה", "נס-ציונה", "אילת", "תל-אביב", "עכו", "נתניה", "ירושלים", "פתח-תקווה", "ראשון-לציון", "הרצליה", "לוד", "כפר-יונה", "יבנה", "הוד-השרון", "רמת-השרון", "באר-שבע", "קריית-אונו", "אשקלון", "רחובות", "ערד", "אשדוד", "חולון", "בית-שמש", "עפולה"],
+    movies: ["טיטאניק", "ברבי", "משימה-בלתי-אפשרית", "שר-הטבעות", "משחקי-הרעב", "מלך-האריות", "ספיידרמן", "צעצוע-של-סיפור", "דמדומים", "אווטאר", "עולם-היורה", "לשבור-את-הקרח", "הארי-פוטר", "היפה-והחיה", "המיניונים", "אלאדין", "אליס-בארץ-הפלאות", "שרק", "הפנתר-השחור"],
+    animals: ["חתול", "תנין", "עכבר", "פיל", "כלב", "פרה", "תרנגול", "יונה", "שור", "חזיר", "קוף", "אריה", "ינשוף", "נמר", "קרנף", "זברה", "גמל", "סוס", "קיפוד", "אוגר", "ארנב", "נמלה"],
 };
-
 
 
 const keys = Object.keys(category);
 console.log(keys);
+
 
 function game() {
     const random = Math.floor(Math.random() * keys.length);
@@ -59,19 +59,25 @@ function game() {
 
         wordFrame.appendChild(divGuessLetter);
 
-
     }
+
+    //הגדרה של הכפתור של הרמז
+    //כולל להפוך ללא זמין אחרי לחיצה אחת
     btnHint.addEventListener("click", () => {
         const y = divs.findIndex(el => el.innerHTML == "");
         divs[y].innerHTML = wordRandom[y];
         btnHint.disabled = true;
         btnHint.style.filter = "none";
+        if (allFull()) {
+            winner();
+            return;
+        }
         console.log(divs[y].innerHTML);
         console.log(wordRandom[y]);
     })
 
 
-
+    //בנייה של הניסיונות 
     const attempts = document.querySelector(".attempts");
     for (let i = 0; i < 6; i++) {
         const divsAttempts = document.createElement("div");
@@ -80,21 +86,7 @@ function game() {
         attempts.appendChild(divsAttempts);
     }
 
-    // window.addEventListener('keydown', ev => {
-    //     ev.preventDefault();
-    //     console.log(ev.key);
 
-    //     // // Checks which key was pressed.
-    //     switch (ev.key) {
-    //         case 'a': letterABclicked = "ש"; break;
-    //         case 'b': move('right'); break;
-    //         case 'c': move('down'); break;
-    //         case 'd': move('left'); break;
-    //         case 'e': clearInterval(interval); break;
-    //     }
-
-
-    // });
 
     //יצירה של המקלדת
     for (let i = 0; i < arrayAB.length; i++) {
@@ -104,17 +96,8 @@ function game() {
         keyboardFrame.appendChild(letterAB);
 
 
+        //האזנה על כל אות במקלדת ובדיקה אם זה חלק מהמילה(כולל בדיקה אם כל המילה מוצגת ונכונה)
         letterAB.addEventListener("click", (ev) => {
-
-
-            // divsAttemptsArray[0].style.backgroundColor = "red";
-            // divsAttemptsArray.splice(0, 1);
-            // if (divsAttemptsArray.length == 2) {
-            //     const span = document.createElement("span");
-            //     span.innerHTML = "נשארו עוד 2 ניסיונות";
-            //     attempts.appendChild(span);
-            // }
-
             letterABclicked = ev.target.innerHTML;
             console.log(letterABclicked);
 
@@ -147,6 +130,7 @@ function game() {
 
 
             } else {
+                //בודק במקרה ולחצנו על אות לא נכונה - צביעה באדום והורדה בניסיונות
                 console.log("לא חלק מהמשפט");
                 divsAttemptsArray[0].style.backgroundColor = "red";
                 divsAttemptsArray.splice(0, 1);
@@ -174,41 +158,13 @@ function game() {
                 }
 
 
-
-                // let x = 0;
-                // for (l of wordRandom) {
-                //     if (l == letterABclicked) {
-                //         const placeLetter = x;
-                //         divs[placeLetter].innerHTML = letterABclicked;
-                //         if (moreThenOneLetter(wordRandom) == true) {
-                //             x++;
-                //         }
-
-                //         console.log(x);
-                //         console.log("מצאתי");
-                //         console.log(l);
-                //         console.log(letterABclicked);
-                //     } else {
-                //         x++;
-                //     }
-                //     // worng();
-                // }
             }
 
         });
 
 
 
-        // if (x()) {
-        //     let y = divs.findIndex(el => el.innerHTML == "");
-        //     divs[y] == wordRandom[y];
-        //     console.log(y);
-        // }
-
     }
-
-
-
 
     console.log(divs);
     console.log(categoryPicked);
@@ -218,8 +174,8 @@ function game() {
 
 
 }
-// game();
 
+//פונקציה שבודקת אם כל הדיבים מלאים = כלומר כל המילה רשומה ונכונה
 function allFull() {
     if (divs.every(el => el.innerHTML != "")) {
         return true;
@@ -228,6 +184,7 @@ function allFull() {
     }
 }
 
+//פונקציה המקבלת מילה ואות ,בודקת אם האות נמצאת במילה ומחזירה בהתאם true / false  
 function chackLetterPlace(letter, word) {
     let x = false;
 
@@ -245,18 +202,8 @@ function chackLetterPlace(letter, word) {
     return x;
 }
 
-function x() {
-    const btnHint = document.querySelector(".hint");
 
-    btnHint.addEventListener("click", () => {
-        console.log("t");
-        return true;
-    });
-
-    return false;
-
-}
-
+//פונקציה המופעלת בסיום במידה והמילה הנכונה נמצאה
 function winner() {
     confetti({
         particleCount: 100,
@@ -277,32 +224,11 @@ function winner() {
 
     document.body.appendChild(right);
 }
-// function worng() {
-//     divsAttemptsArray[0].style.backgroundColor = "red";
-//     divsAttemptsArray.splice(0, 1);
-//     if (divsAttemptsArray.length == 2) {
-//         const span = document.createElement("span");
-//         span.innerHTML = "נשארו עוד 2 ניסיונות";
-//         attempts.appendChild(span);
-//     }
-// };
 
-//פונקציה שמחזירה T/F אם קיימת אות יותר מפעם אחת
-function moreThenOneLetter(array) {
-    for (let i = 0; i < array.length; i++) {
-        for (let y = i; y <= array.length; y++) {
-            let chack = array[i];
-            if (chack == array[y]) {
-                return true;
-            } else {
-                x = false;
-            }
 
-        }
-        return x;
-    }
-}
 
+
+//פונרציה המפעילה מחדש את המשחק
 function newGame() {
     loader(true);
     setTimeout(() => {
@@ -313,7 +239,7 @@ function newGame() {
 
 }
 
-
+//פונקציה של הלאודר
 function loader(isShowing = false) {
     const loaderFrame = document.querySelector('.loaderFrame');
 
