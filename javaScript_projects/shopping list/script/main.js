@@ -104,15 +104,15 @@ function createBoard() {
 //         }
 //     });
 // }
-function removeTask2() {
-    const obj = {
-        elem: "",
-        text: ""
-    };
-    div === null || div === void 0 ? void 0 : div.addEventListener("click", () => {
-        console.log("היי");
-    });
-}
+// function removeTask2() {
+//     const obj = {
+//         elem: "",
+//         text: ""
+//     }
+//     div?.addEventListener("click", () => {
+//         console.log("היי");
+//     })
+// }
 function addTask() {
     const btn = document.querySelector("add");
     const val = content === null || content === void 0 ? void 0 : content.querySelector("input");

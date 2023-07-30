@@ -140,17 +140,17 @@ function createBoard() {
 
 
 
-function removeTask2() {
-    const obj = {
-        elem: "",
-        text: ""
-    }
+// function removeTask2() {
+//     const obj = {
+//         elem: "",
+//         text: ""
+//     }
 
 
-    div?.addEventListener("click", () => {
-        console.log("היי");
-    })
-}
+//     div?.addEventListener("click", () => {
+//         console.log("היי");
+//     })
+// }
 
 
 function addTask() {
