@@ -155,7 +155,9 @@ h1{
 
     .inputGame {
         width:100px;
-        height:30px;
+        height:35px;
+        font-size: 30px;
+        color:black;
     }
 
     .btn-chack{
