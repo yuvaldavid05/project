@@ -1,12 +1,22 @@
-function form_portfolio(){
-    document.querySelector('section .col-sm-6').style.display = 'none';
 
-    const elemContact = document.querySelector('#contact');
-    const send = document.createElement('p');
-    send.className = "send";
-    send.innerHTML = "טופס זה נשלח ויענה בהקדם, <br> תודה ויום נעים!";
+function send(ev) {
+    ev.preventDefault();
 
-    elemContact.appendChild(send);
+    const form = ev.target;
 
-    // action=""
+    const data = {
+        name: form.querySelector('[name=name]').value,
+        email: form.querySelector('[name=email]').value,
+        phone: form.querySelector('[name=phone]').value,
+        message: form.querySelector('[name=message]').value,
+    }
+
+    form.querySelector('[name=name]').value = "";
+    form.querySelector('[name=email]').value = "";
+    form.querySelector('[name=phone]').value = "";
+    form.querySelector('[name=message]').value = "";
+
+    localStorage.contact = JSON.stringify(data);
+    location.href = 'contact-info.html';
+
 }

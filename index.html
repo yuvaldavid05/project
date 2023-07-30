@@ -46,8 +46,15 @@
 
     <section class="mt-4 p-5 main">
         <h1>תיק עבודות</h1>
-        <p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק. תצטנפל בלינדו למרקל אס לכימפו, דול, צוט
-            ומעיוט לפתיעם ברשג. </p>
+        <p>באתר זה תוכלו למצוא עבודות רבות בנושאים שונים, כל עבודה תוכננה ונבנתה תוך התעמקות, הבנה וריכוז הידע
+            הנלמד מקורס זה.
+            <br>
+            בעבודות השתדלתי לתמצת ולשלב את היכולות והידע שצברתי בקורס בשילוב חקירה נוספת במקורות מידע שונים ורלוונטים
+            לכל שלב.
+            <br>
+            דפדפו ותהנו..
+
+        </p>
     </section>
 
     <section class="icons">
@@ -274,20 +281,20 @@
             <p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק. תצטנפל בלינדו למרקל אס לכימפו, דול, צוט
                 ומעיוט לפתיעם ברשג. </p>
 
-            <form>
+            <form onsubmit="send(event)">
                 <label class="form-label">שם:</label>
-                <input class="form-control" type="name" required>
+                <input class="form-control" type="name" name="name">
 
                 <label class="form-label">אימייל:</label>
-                <input class="form-control" type="name">
+                <input class="form-control" type="email" name="email">
 
                 <label class="form-label">טלפון:</label>
-                <input class="form-control" type="name">
+                <input class="form-control" type="tel" name="phone">
 
                 <label class="form-label">הודעה:</label>
-                <textarea class="form-control" cols="30" rows="10"></textarea>
-                <button onclick="form_portfolio()">שליחה</button>
+                <textarea class="form-control" cols="30" rows="10" name="message"></textarea>
 
+                <button class="btn btn-info">שליחה</button>
             </form>
         </div>
     </section>
