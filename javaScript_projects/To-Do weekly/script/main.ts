@@ -14,26 +14,8 @@ const add = document.querySelector(".add");
 const val = content?.querySelector("input")?.value;
 
 
-// if (localStorage.toDo) {
-//     const toDo = JSON.parse(localStorage.toDo);
 
-//     toDo.forEach(() => {
-//         showTasks()
-//     });
-// }
-
-// function showTasks(){
-//     const allIn = [...document.querySelectorAll(".frame .divs p")];
-//     if(allIn.map(el => el.innerHTML !=="").filter(x => x)){
-//         console.log(allIn);
-//     }
-// }
-
-// if (localStorage.frame) {
-//     console.log("יש מידע");
-//     frame?.innerHTML = localStorage.frame;
-// }
-
+//פונקציית יצירת הלוח השבועי(יוצרת את הדיבים מתחת לימים)
 function createBoard() {
     for (let i = 0; i < width * heightRow; i++) {
         const div = document.createElement("div");
@@ -60,10 +42,12 @@ function createBoard() {
                 console.log("מצאתי");
                 console.log(i);
 
+
+                //פונקציית האזנה לכפתור מחיקה, קולטת את המטלה שלא ריקה 
+                //שנלחצה ומוחקת את הטקסט בפנים
                 const remove = document.querySelector(".remove");
                 remove?.addEventListener("click", () => {
                     if (divsArry[i] !== "") {
-                        // if (confirm("האם אתה בטוח שאתה רוצה למחוק מטלה זו?")) {
                         divsArry[i].innerHTML = "";
                         div.style.borderTop = "none";
                         div.style.borderBottom = "none";
@@ -71,10 +55,12 @@ function createBoard() {
                         div.style.borderLeft = "1px solid black";
                         div.style.background = "bisque";
                     }
-                    // }
+
 
                 });
 
+                //האזנה והגדרה לכפתור עריכה - דאבל קליק עריכה
+                //לחיצה אחת סגירת העריכה
                 const edit = document.querySelector(".edit");
                 edit?.addEventListener("dblclick", () => {
                     div.contentEditable = "true";
@@ -90,69 +76,16 @@ function createBoard() {
                     div.style.borderLeft = "1px solid black";
 
                 });
-
-                // const done = document.querySelector(".done");
-                // done?.addEventListener("click", () => {
-                //     div.style.backgroundColor = "rgba(72, 241, 184, 0.674)";
-                //     div.style.borderTop = "none";
-                //     div.style.borderBottom = "none";
-                //     div.style.borderRight = "1px solid black";
-                //     div.style.borderLeft = "1px solid black";
-                //     return;
-                // });
-
-
-
-                // btnRemove?.addEventListener("click", () => removeTask(i));
-
-
             }
-
-
         })
     }
-
-    // removeTask();
-
-
 }
 
 
-// function removeTask(i: number) {
-//     const divElem = divsArry[i].closet("div");
-//     console.log(divElem);
-//     const remove = document.querySelector(".remove");
-//     remove?.addEventListener("click", () => {
-//         if (divsArry[i] !== "") {
-//             // removeTask(i);
-//             if (confirm("האם אתה בטוח שאתה רוצה למחוק מטלה זו?")) {
-//                 divsArry[i].innerHTML = "";
-//                 divElem.style.borderTop = "none";
-//                 divElem.style.borderBottom = "none";
-//                 divElem.style.borderRight = "1px solid black";
-//                 divElem.style.borderLeft = "1px solid black";
-//                 divElem.style.background = "bisque";
-//             }
-//         }
-
-//     });
-// }
 
 
-
-// function removeTask2() {
-//     const obj = {
-//         elem: "",
-//         text: ""
-//     }
-
-
-//     div?.addEventListener("click", () => {
-//         console.log("היי");
-//     })
-// }
-
-
+// פונקציה המופעלת בכפתור ההוספה, קולטת את הערכים ושולחת אותם לפונקציה
+// שמסדרת אותם לפי הימים בקפיצות של 7 
 function addTask() {
     const btn = document.querySelector("add");
 
@@ -168,12 +101,7 @@ function addTask() {
     }
 }
 
-function edit(divIndex: number) {
-    const div = document.querySelector("divs");
-
-
-}
-
+//הפונקציה המסדרת את המשימות לפי הימים בקפיצות של אורך הטבלה (כלומר 7) 
 function sendDay(dayOne: string | undefined, content: string | undefined) {
 
     switch (dayOne) {
@@ -208,8 +136,6 @@ function sendDay(dayOne: string | undefined, content: string | undefined) {
 
 }
 
-// function save() {
-//     localStorage.frame = frame?.innerHTML;
-// }
+
 
 

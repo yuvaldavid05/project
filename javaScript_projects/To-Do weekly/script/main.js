@@ -11,22 +11,7 @@ const content = document.querySelector(".content");
 const day = document.querySelector(".day");
 const add = document.querySelector(".add");
 const val = (_a = content === null || content === void 0 ? void 0 : content.querySelector("input")) === null || _a === void 0 ? void 0 : _a.value;
-// if (localStorage.toDo) {
-//     const toDo = JSON.parse(localStorage.toDo);
-//     toDo.forEach(() => {
-//         showTasks()
-//     });
-// }
-// function showTasks(){
-//     const allIn = [...document.querySelectorAll(".frame .divs p")];
-//     if(allIn.map(el => el.innerHTML !=="").filter(x => x)){
-//         console.log(allIn);
-//     }
-// }
-// if (localStorage.frame) {
-//     console.log("יש מידע");
-//     frame?.innerHTML = localStorage.frame;
-// }
+//פונקציית יצירת הלוח השבועי(יוצרת את הדיבים מתחת לימים)
 function createBoard() {
     for (let i = 0; i < width * heightRow; i++) {
         const div = document.createElement("div");
@@ -46,10 +31,11 @@ function createBoard() {
                 div.style.border = "2px dotted black";
                 console.log("מצאתי");
                 console.log(i);
+                //פונקציית האזנה לכפתור מחיקה, קולטת את המטלה שלא ריקה 
+                //שנלחצה ומוחקת את הטקסט בפנים
                 const remove = document.querySelector(".remove");
                 remove === null || remove === void 0 ? void 0 : remove.addEventListener("click", () => {
                     if (divsArry[i] !== "") {
-                        // if (confirm("האם אתה בטוח שאתה רוצה למחוק מטלה זו?")) {
                         divsArry[i].innerHTML = "";
                         div.style.borderTop = "none";
                         div.style.borderBottom = "none";
@@ -57,8 +43,9 @@ function createBoard() {
                         div.style.borderLeft = "1px solid black";
                         div.style.background = "bisque";
                     }
-                    // }
                 });
+                //האזנה והגדרה לכפתור עריכה - דאבל קליק עריכה
+                //לחיצה אחת סגירת העריכה
                 const edit = document.querySelector(".edit");
                 edit === null || edit === void 0 ? void 0 : edit.addEventListener("dblclick", () => {
                     div.contentEditable = "true";
@@ -71,48 +58,12 @@ function createBoard() {
                     div.style.borderRight = "1px solid black";
                     div.style.borderLeft = "1px solid black";
                 });
-                // const done = document.querySelector(".done");
-                // done?.addEventListener("click", () => {
-                //     div.style.backgroundColor = "rgba(72, 241, 184, 0.674)";
-                //     div.style.borderTop = "none";
-                //     div.style.borderBottom = "none";
-                //     div.style.borderRight = "1px solid black";
-                //     div.style.borderLeft = "1px solid black";
-                //     return;
-                // });
-                // btnRemove?.addEventListener("click", () => removeTask(i));
             }
         });
     }
-    // removeTask();
 }
-// function removeTask(i: number) {
-//     const divElem = divsArry[i].closet("div");
-//     console.log(divElem);
-//     const remove = document.querySelector(".remove");
-//     remove?.addEventListener("click", () => {
-//         if (divsArry[i] !== "") {
-//             // removeTask(i);
-//             if (confirm("האם אתה בטוח שאתה רוצה למחוק מטלה זו?")) {
-//                 divsArry[i].innerHTML = "";
-//                 divElem.style.borderTop = "none";
-//                 divElem.style.borderBottom = "none";
-//                 divElem.style.borderRight = "1px solid black";
-//                 divElem.style.borderLeft = "1px solid black";
-//                 divElem.style.background = "bisque";
-//             }
-//         }
-//     });
-// }
-// function removeTask2() {
-//     const obj = {
-//         elem: "",
-//         text: ""
-//     }
-//     div?.addEventListener("click", () => {
-//         console.log("היי");
-//     })
-// }
+// פונקציה המופעלת בכפתור ההוספה, קולטת את הערכים ושולחת אותם לפונקציה
+// שמסדרת אותם לפי הימים בקפיצות של 7 
 function addTask() {
     const btn = document.querySelector("add");
     const val = content === null || content === void 0 ? void 0 : content.querySelector("input");
@@ -126,9 +77,7 @@ function addTask() {
         alert(" אופס... לא כל השדות מלאים");
     }
 }
-function edit(divIndex) {
-    const div = document.querySelector("divs");
-}
+//הפונקציה המסדרת את המשימות לפי הימים בקפיצות של אורך הטבלה (כלומר 7) 
 function sendDay(dayOne, content) {
     switch (dayOne) {
         case 'יום א':
@@ -170,6 +119,3 @@ function sendDay(dayOne, content) {
         divsArry[widthRow].innerText = content;
     }
 }
-// function save() {
-//     localStorage.frame = frame?.innerHTML;
-// }

@@ -9,12 +9,12 @@ let timer = 0;
 let namePlayer1 = "שחקן 1";
 let namePlayer2 = "שחקן 2";
 
-function logInPLayers(){
+function logInPLayers() {
 
     const player1 = document.querySelector('.frame input#first');
     const player2 = document.querySelector('.frame input#second');
 
-    if(player1.value || player2.value){
+    if (player1.value || player2.value) {
         namePlayer1 = player1.value || namePlayer1;
         namePlayer2 = player2.value || namePlayer2;
     }
@@ -32,25 +32,23 @@ function logInPLayers(){
 
 
 //יצירת הלוח
-function createBoard(){
+function createBoard() {
     document.querySelector('.frame section').style.display = 'none';
 
-    for(i = 1; i <= 9; i++){
+    for (i = 1; i <= 9; i++) {
         const div = document.createElement('div');
-       div.style.color =` hsl(${i * 30}  50%  52%)` ;
+        div.style.color = ` hsl(${i * 30}  50%  52%)`;
         divAll.push(div);
 
         board.appendChild(div);
 
-       
-        
-        
+
         const x = document.querySelector('section #player1');
         const o = document.querySelector('section #player2');
-        if(x.innerHTML == '' && o.innerHTML == ''){
+        if (x.innerHTML == '' && o.innerHTML == '') {
             namePlayer1 = 'x';
             namePlayer2 = 'o';
-        } 
+        }
 
         //יצירת שלבי המשחק כאשר כל תור זוגי הוא של שחקן o
         div.addEventListener('click', ev => {
@@ -60,15 +58,15 @@ function createBoard(){
                 return;
             }
 
-           const clickDiv = ev.target;
-            if(!clickDiv.innerHTML && counter % 2 == 0){
+            const clickDiv = ev.target;
+            if (!clickDiv.innerHTML && counter % 2 == 0) {
                 clearInterval(timerInterval);
                 timerOn();
                 timer = 0;
                 div.innerHTML = 'x';
                 counter++;
-                
-            } else if( !clickDiv.innerHTML) {
+
+            } else if (!clickDiv.innerHTML) {
                 clearInterval(timerInterval);
                 timerOn();
                 timer = 0;
@@ -77,85 +75,49 @@ function createBoard(){
             }
             // שליחה לפונקציה שתבדוק אם יש מנצח בכל קליק, מילוי קובייה
             check();
-            
+
 
 
 
             //במידה ויש מנצח ו.או כל המשבצות מלאות - הכרזה על סוף המשחק ואיפוס הצובר
-            if (winnerIs || divAll.every(val => val.innerHTML)){
+            if (winnerIs || divAll.every(val => val.innerHTML)) {
                 counter = 0;
                 isGameover = true;
                 gameover();
             }
         });
-        const buttonHow = document.createElement('button');
         const buttonPlay = document.createElement('button');
-    
-        buttonHow.className = 'button1';
         buttonPlay.className = 'button2';
-    
-        buttonHow.innerHTML = 'הוראות משחק';
         buttonPlay.innerHTML = 'איפוס משחק';
-    
-        frame.appendChild(buttonHow);
         frame.appendChild(buttonPlay);
 
-        
-    }
-
-
-    // button1.addEventListener('click' , () =>{
-    //     document.querySelector('.three.show').style.display = 'block';
-    // });
-
-    // buttonPlay.addEventListener('click' , stop());
-
-    // buttonPlay.addEventListener('click' , () => {
-    //     // const div = document.querySelectorAll('.board div');
-    //     divAll.every(val => val.innerHTML == '');
-    //     // clearInterval(timerInterval);
-    //     timer = 0;
-    //     timerOn();
-    //     clearInterval(timerInterval);
-    // });
-};
-
-    function startOver(){
-        const buttonHow = document.querySelector('buttonHow');
-        const buttonPlay = document.querySelector('buttonPlay');
-    
-        buttonPlay.addEventListener('click' , () =>{
+        buttonPlay.addEventListener('click', () => {
             location.reload();
-            clearInterval(timerInterval);
         });
 
-        buttonHow.addEventListener('click' , () => {
-            document.querySelector('.three .toast .show').style.display = 'block';
-        })
     }
 
-    startOver();
-        
+};
 
-        function timerOn(){
-            timerInterval = setInterval(() => {
-                const date = new Date(timer * 1000);
-                const s = date.getSeconds();
-                const m = date.getMinutes();
-                document.querySelector(".timer").innerHTML = `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
-                timer++;
-                // while (s >= 2){
-                //     let timerOnTime = document.querySelector(".timer");
-                //     timerOnTime.style.color = "red";
 
-                // }
-    
-                if(isGameover){
-                    clearInterval(timerInterval);
-                }
-        }, 1000);
-        };
-   
+
+function timerOn() {
+    timerInterval = setInterval(() => {
+        const date = new Date(timer * 1000);
+        const s = date.getSeconds();
+        const m = date.getMinutes();
+        document.querySelector(".timer").innerHTML = `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
+        timer++;
+
+        if (s > 15) {
+            document.querySelector(".timer").style.color = "red";
+        }
+        if (isGameover) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+};
+
 
 
 
@@ -175,11 +137,11 @@ function check() {
     ];
 
     //בדיקה של כל מערך בתוך המערך הגדול
-    for (const arr of options){
+    for (const arr of options) {
         const res = arr.map(index => divs[index].innerHTML);
 
         //בדיקה אם כל הערכים במערך הפנימי שווים - כלומר יש מנצח
-        if(res.every(val => val == 'x')){
+        if (res.every(val => val == 'x')) {
             winnerIs = 'x';
             winnerArray = arr;
             break;
@@ -191,47 +153,29 @@ function check() {
         }
     }
 };
-    
 
-//     function showWinner(text) {
-//         const winner = document.createElement("div");
-//         winner.classList.add("winner");
-//         winner.innerHTML = text;
-    
-//         board.appendChild(winner);
-//     }
-    
-    function gameover(){
-        if(winnerIs){
-            const winner = document.createElement("div");
-            winner.classList.add("winner");
 
-            if(winnerIs == 'x'){
-                
-                winner.innerHTML = `המנצח <br> הוא <br> ${namePlayer1}`;
-    
-            }else {
-                winner.innerHTML = `המנצח <br> הוא <br> ${namePlayer2}`;
-            }
-            document.body.appendChild(winner);
+function gameover() {
+    if (winnerIs) {
+        const winner = document.createElement("div");
+        winner.classList.add("winner");
 
-        } else{
-            const nobody = document.createElement("div");
-            nobody.classList.add("winner");
-            nobody.innerHTML = ' המשחק נגמר, אין מנצח';
-            document.body.appendChild(nobody);
+        if (winnerIs == 'x') {
+
+            winner.innerHTML = `המנצח <br> הוא <br> ${namePlayer1}`;
+
+        } else {
+            winner.innerHTML = `המנצח <br> הוא <br> ${namePlayer2}`;
         }
-        };
+        document.body.appendChild(winner);
 
-    // התחלה מחדש של המשחק - תוך טעינת מסך
-    // function stop(){
-    //     // setTimeout(() => {
-    //     //     location.reload();
-    //     // }, 7 * 1000);
+    } else {
+        const nobody = document.createElement("div");
+        nobody.classList.add("winner");
+        nobody.innerHTML = ' המשחק נגמר, אין מנצח';
+        document.body.appendChild(nobody);
+    }
+};
 
-    //     location.reload();
-    //     clearInterval(timerInterval);
-
-    // }
 
 

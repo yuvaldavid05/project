@@ -18,18 +18,14 @@ h1{
     font-size: 40px;
     color:black;
     margin: 0 170px;
-    /* border: 2px dotted rgb(225, 116, 138); */
-    /* padding:25px; */
-
 }
 
 .frame{
-    background-color:rgb(70, 65, 65);
-    /* rgba(165, 42, 42, 0.26) */
-    height: 700px;
+    height: 100vh;
     border-radius: 12px 12px 0 0;
     padding:0;
     margin:0 8px;
+    background-color:rgb(70, 65, 65);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
     
     position:relative;
@@ -96,14 +92,9 @@ h1{
     left:160px;
 }
 
-.button1{
-    top:120px;
-
-}
 
 .button2{
-    top:230px;
-
+    top:170px;
 }
 
 
@@ -216,15 +207,11 @@ h1{
 }
 
 @media (max-width: 1100px) {
-    .frame .button1 ,.frame .button2{
+    .frame .button2{
         width:250px;
         margin: auto;
-        right:150px;
+        right:100px;
 
-    }
-
-    .button1 {
-        top:85%;
     }
 
     .button2{

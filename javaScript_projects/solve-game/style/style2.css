@@ -3,8 +3,6 @@
 body{
     direction: ltr;
     background-color: rgba(127, 255, 212, 0.697);
-    /* background-image: url(./../images/Contact\ Grid\ Wallpaper\ •\ Milton\ &\ King.png
-    ); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -22,7 +20,6 @@ h1{
     margin:80px auto;
     padding: 25px;
     border-radius: 12px;
-    /* box-shadow: 0 0 5px 0; */
    position: relative;
 
 
@@ -56,37 +53,22 @@ h1{
 }
 
 
-
+/* 
 .divNum1{
-    /* width:100px;
-    height:100px; */
-    /* background-color: yellow; */
-    /* border: 2px solid black; */
     font-size: 63px;
 }
 
 .divNum2{
-    /* width:100px;
-    height:100px; */
-    /* background-color: green; */
-    /* border: 2px solid black; */
-    font-size: 40px;
+    font-size: 63px;
 
-}
+} */
 
 .divOp{
-    /* width:100px;
-    height:100px; */
-    
-    /* background-color: blue; */
-    /* border: 2px solid black; */
     font-size: 100px;
     
 }
 
 .Equal{
-    /* width:100px;
-    height:100px; */
     font-size: 55px;
     color:aliceblue;
 }
@@ -116,10 +98,6 @@ h1{
    right:90px;
 }
 
-.right{
-    background-color: green;
-}
-
 
 
 .gameOver{
@@ -137,4 +115,62 @@ h1{
     bottom: 0;
     right:0;
     left:0;
+}
+
+.btnStartNewGame{
+    width:200px;
+    font-size:18px;
+    border:none;
+    border-radius: 12px;
+    background-color: bisque;
+ position: absolute;
+    margin:auto;
+    top:70%;
+    left:45%;
+    transition: 0.5s;
+}
+
+.btnStartNewGame:hover {
+    scale: 1.1;
+}
+
+@media (max-width:680px) {
+    .frame {
+        width:90%;
+        height:100%;
+        top:0;
+        bottom: 0;
+    }
+
+    .game{
+        font-size: 20px;
+    }
+
+    .divNum1,.divNum2, .divOp, .Equal, .inputGame{
+        font-size: 20px;
+    }
+
+    .frame div div:not(button){
+        width:50px;
+        font-size: 30px;
+
+    }
+
+    .inputGame {
+        width:100px;
+        height:30px;
+    }
+
+    .btn-chack{
+        width:150px;
+    }
+
+    .gameOver{
+        width:90%;
+        font-size: 30px;
+    }
+
+    .btnStartNewGame{
+        left:25%;
+    }
 }

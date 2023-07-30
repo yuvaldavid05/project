@@ -110,7 +110,6 @@ class TeachersInfo {
     ];
 
     constructor() {
-        console.log("היי");
         const elem = document.querySelector('.frameTeachers');
 
         this.teachers.forEach(t => {
@@ -126,6 +125,7 @@ class TeachersInfo {
 
     }
 
+    //פונקציה לבניית המודל מהפרטים של המערך
     open(tId: number) {
         const elem = document.querySelector('.frameTeachers');
         const i = this.teachers.findIndex(x => x.id == tId);
@@ -174,7 +174,7 @@ class TeachersInfo {
 
     grades: number[] = [];
 
-
+    //פונקציה לחישוב מספר התלמידים שיש למורה בכלל הכיתות (בהנחה ומס' התלמידים בכיתות שווה)
     students(sumClass: number, grades: number[]) {
         //בהנחה שמספר התלמידים בכיתות שווה
         const numStudents: number = grades.length;
@@ -182,6 +182,8 @@ class TeachersInfo {
         return numStudents * sumClass;
     }
 
+
+    //פונקציה המחשבת את המומצוע בכיתה אקראית (הכיתה שהזנו את הציונים שלה)
     averageGrades(numStudents: number[]) {
         let sum: any = 0;
         for (let i = 0; i < numStudents.length; i++) {
@@ -195,11 +197,14 @@ class TeachersInfo {
         return avg;
     }
 
+    //פונקציה לחישוב משכורת שנתית (לא כולל מיסים וכו)
     annualSalary(oneSalary: number) {
         console.log(oneSalary * 12)
         return oneSalary * 12;
     }
 
+    //פונקציה לחישוב ימי מחלה שנשארו (כאשר קיבלנו את הימים שהמורה כבר השתמש) 
+    //בהנחה ויש 14 ימי מחלה בשנה
     sickDayLeft(dayUsed: number) {
         const sickDayByYear = 14;
         console.log(sickDayByYear - dayUsed)

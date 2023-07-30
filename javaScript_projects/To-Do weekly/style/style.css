@@ -131,10 +131,7 @@ justify-content: center;
     border-bottom: none;
     border-top:none;
 }
-/* 
-.frame .divs{
-    scale: 0.9;
-} */
+
 
 .sunday{
     border-radius: 0 12px 0 0;
@@ -155,11 +152,14 @@ justify-content: center;
 }
 
 @media (max-width:850px) {
+    h1 {
+        margin-top: 10px;
+    }
     .instructions{
        display: none;
        bottom: 0;
-
     }
+
     .tasks label{
         display: block;
     }
@@ -168,16 +168,4 @@ justify-content: center;
         margin-top: 10px;
     }
 
-    .frame{
-        display: grid;
-        grid-template-columns: repeat(1,fr);
-    }
-
-    .sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday{
-
-    }
-
-    .frame div:nth-child(7n + 7) {
-        background-color: darkgoldenrod;
-    }
 }
