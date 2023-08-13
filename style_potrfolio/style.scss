@@ -120,10 +120,12 @@ a.nav-link {
         }
 
         .card {
+            height: 450px;
             border-radius: 10px;
             overflow: hidden;
             text-align: center;
             transition: 1.5s;
+            position: relative;
 
             &:hover{
                 box-shadow: 0 0 12px #00000029;
@@ -147,6 +149,10 @@ a.nav-link {
                     margin-top: 20px;
                     border-radius: 30px;
                     padding: 6px 32px;
+                   position: absolute;
+                   right:50px;
+                   bottom:30px;
+                   
                 }
 
             }

@@ -109,10 +109,12 @@ a.nav-link {
   padding: 16px;
 }
 #gallery .row .card, #gallery-js .row .card {
+  height: 450px;
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
   transition: 1.5s;
+  position: relative;
 }
 #gallery .row .card:hover, #gallery-js .row .card:hover {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1607843137);
@@ -133,6 +135,9 @@ a.nav-link {
   margin-top: 20px;
   border-radius: 30px;
   padding: 6px 32px;
+  position: absolute;
+  right: 50px;
+  bottom: 30px;
 }
 
 #gallery-js {
