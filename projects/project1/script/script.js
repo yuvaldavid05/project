@@ -1,4 +1,4 @@
-function form1(){
+function form1() {
     document.querySelector('.inside form').style.display = 'none';
 
     const elemContact = document.querySelector('.inside');
